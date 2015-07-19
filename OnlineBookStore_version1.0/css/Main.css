@@ -1,0 +1,156 @@
+﻿body {
+    background-color:silver;
+    height:1800px;
+}
+.PCategory{
+    position:absolute;
+    top:45px;
+    left:5px;
+    width:215px;
+    height:560px;
+}
+.CateButton{
+display:block;
+font-weight:bold;
+color:#FFFFFF;
+width:170px;
+height:80px;
+line-height:80px;
+border-radius:5px;
+padding:4px;
+margin:4px;
+text-align:center;
+text-decoration:none;
+font-size:x-large;
+font-family:'微软雅黑','楷体';
+transition: width 0.5s,height 0.5s;
+}
+.CateButton:link,.CateButton:visited
+{
+background-color:#5cacee;
+
+}
+.CateButton:hover,.CateButton:active
+{
+background-color:#8DEEEE;
+width:200px;
+height:85px;
+}
+.lblBookRecommend{
+    padding-top:8px;
+    padding-left:50px;
+    border-radius:5px;
+    width:891px;
+    height:60px;
+    text-align:left;
+    background-color:#5cacee;
+    border-width:0px;
+    font-size:2em;
+    font-family:'Microsoft YaHei';
+    color:white;
+    font-weight:700;
+    position:absolute;
+    left:8px;
+    top:630px;
+}
+.pnlBookNew {
+    border-radius:5px;
+    position: absolute;
+    left: 976px;
+    top: 60px;
+    width: 350px;
+    background-color:white;
+}
+.lblBookNew{
+    padding-top:8px;
+    padding-left:10px;
+    border-radius:5px;
+    width:340px;
+    height:60px;
+    text-align:left;
+    background-color:#5cacee;
+    border-width:0px;
+    font-size:2em;
+    font-family:'Microsoft YaHei';
+    color:white;
+    font-weight:700;
+    position:absolute;
+    left:0px;
+    top:0px;
+}
+.imgBookNew0,.imgBookNew1,.imgBookNew2,.imgBookNew0:visited,.imgBookNew1:visited,.imgBookNew2:visited{
+    width:300px;
+    height:420px;
+    border-width:2px;
+    border-color:black;
+    margin-left:25px;
+    margin-top:20px;
+}
+.imgBookNew0:hover,.imgBookNew1:hover,.imgBookNew2:hover{
+    margin:0px;
+    height:460px;
+    width:350px;
+    transition:all .5s;
+    -webkit-transition:all .5s;
+    -moz-transition:all .5s;
+    -o-transition:all .5s;
+}
+
+.pnlBookRecommend{
+    border-radius:5px;
+    border-width:0px;
+    background-color:white;
+    width:939px;
+    height:854px;
+    position:absolute;
+    left:8px;
+    top:720px;
+}
+.pnlBookR{
+    width:308px;
+    height:420px;
+}
+.imgBookR,.imgBookR:visited{
+    width:272px;
+    height:358px;
+    margin-left:18px;
+    margin-top:14px;
+}
+.imgBookR:hover{
+    margin:0px;
+    height:386px;
+    width:300px;
+    transition:all .5s;
+    -webkit-transition:all .5s;
+    -moz-transition:all .5s;
+    -o-transition:all .5s;
+}
+.lkbBookName,.lkbBookName:visited{
+    height:28px;
+    text-align:left;
+    font-weight:600;
+    font-family:'Microsoft YaHei';
+    font-size:1em;
+    color:black;
+}
+.lkbBookName:hover{
+    font-size:1.2em;
+    font-weight:bold;
+    color:#5cacee;
+    font-weight:bold;
+    transition:all .4s;
+    -webkit-transition:all .4s;
+    -moz-transition:all .4s;
+    -o-transition:all .4s;
+}
+.lblAuthorName{
+    text-align:left;
+    height:20px;
+    font-family:'Microsoft YaHei';
+    font-weight:400;
+    font-size:0.8em;
+    color:grey;
+}
+
+
+

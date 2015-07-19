@@ -1,0 +1,122 @@
+﻿body {
+}
+.P_BookShow{
+    position:absolute;
+    top:240px;
+    left:225px;
+    height:1930px;
+    width:910px;
+    font-family:'微软雅黑','楷体';
+}
+.GV_BookShow{
+    height:1920px;
+    width:905px;
+    position:relative;
+    top:10px;
+}
+.P_Recommend{
+    position:absolute;
+    top:250px;
+    left:1140px;
+    height:1920px;
+    width:205px;
+    border-left:2px solid #5cacee  ;
+}
+.Table:hover, .Table:active {
+            border-radius: 4px;
+            border: 2px solid;
+            border-color: #5cacee;
+            height:340px;
+            width:210px;
+        }
+        .Cover {
+            Height: 240px;
+            Width: 180px;
+            position:relative;
+            left:10px;
+        }
+        .Table1 {
+            width: 200px;
+            height:242px;
+        }
+        .Table2 {
+            width: 200px;
+            height:60px;
+            text-decoration:none;
+            font-family: "微软雅黑";
+        }
+        .Table3 {
+            height: 40px;
+        }
+        .BookLink:link, .BookLink:visited {
+            color: #436eee;
+            text-decoration: none;
+        }
+
+        .BookLink:hover, .BookLink:active {
+            color:#5cacee;
+            text-decoration: underline;
+        }
+
+        .AddCart {
+            position:relative;
+            left:70px;
+            display: block;
+            font-weight:600;
+            color: #5cacee;
+            width: 120px;
+            height: 30px;
+            line-height: 30px;
+            border-radius: 8px;
+            border:2px solid;
+            border-bottom-color: #5cacee;
+            background-color: white;
+            text-align: center;
+            text-decoration: none;
+            font-family: '微软雅黑','楷体';
+        }
+
+            .AddCart:hover, .AddCart:active {
+                color: white;
+                border-color: white;
+                background-color: #5cacee;
+            }
+            .ImgRecommend{
+                position:relative;
+                top:5px;
+                left:50px;
+            }
+            .GV_Recommend{
+                position:relative;
+                top:5px;
+                width:200px;
+                height:1850px;
+            }
+            .R_Table{
+                width:200px;
+                height:270px;
+            }
+            .R_Table1 {
+            width: 200px;
+            height:240px;
+        }
+                    .R_Cover {
+            Height: 240px;
+            Width: 180px;
+            position:relative;
+            left:10px;
+        }
+             .R_Table2 {
+            width: 200px;
+            height:20px;
+            text-decoration:none;
+            text-align:center;
+            font-family: "微软雅黑";
+        }
+             .Advertice{
+                 position:absolute;
+                 top:800px;
+                 left:15px;
+                 width:170px;
+                 height:1330px;
+             }
