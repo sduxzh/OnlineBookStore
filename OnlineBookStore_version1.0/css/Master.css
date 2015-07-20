@@ -82,7 +82,7 @@ body {
 }
 .lblUserName{
     position:absolute;
-    left:140px;
+    left:212px;
     top:0px;
     height:40px;
     width:60px;
@@ -95,7 +95,7 @@ body {
 }
 .lblNameInput{
     position:absolute;
-    left:200px;
+    left:166px;
     top:0px;
     height:40px;
     width:200px;
@@ -105,6 +105,31 @@ body {
     font-size:0.8em;
     font-weight:600;
     padding-top:12px;
+}
+.lkbUserOperation{
+    position:absolute;
+    
+    top:0px;
+    height:40px;
+    width:80px;
+    color:white;
+    text-align:center;
+    font-family:'Microsoft YaHei';
+    font-size:0.8em;
+    font-weight:600;
+    padding-top:12px;
+}
+#lkbShoppingCart{
+    left:410px;
+}
+#lkbUserOrder{
+    left:500px;
+}
+.lkbUserOperation:hover{
+    color:blue;
+    font-size:1em;
+    transition:all .4s;
+    -webkit-transition:all .4s;
 }
 .lkbQuit{
     border-radius:5px;
@@ -179,21 +204,27 @@ body {
     font-weight:900;
 }
 #cmdLogin:hover+#pnlLoginDown{
+    opacity:1;
+    height:374px;
     top:40px;
     transition:all 1s;
     -webkit-transition:all 1s;
+    
 }
 .pnlLoginDown{
    width:383px;
-    height:374px;
+    height:0px;
     position:absolute;
      z-index:999;
     top:-500px;
     right:170px;
     background-image:url('../Images/登录背景.png');
     background-repeat:no-repeat;
+    opacity:0;
 }
 .pnlLoginDown:hover{
+   opacity:1;
+    height:374px;
     top:40px;
 }
 .lblLoginFont{
@@ -504,6 +535,21 @@ font-weight:900;
     transition:all 1s;
     -webkit-transition:all 1s;
 }
+#footer{
+    width:800px;
+    height:25px;
+    position:fixed;
+    right:0px;
+    bottom:0px;
+    background-color:#8DEEEE;
+    border-top-left-radius:8px;
+}
+#lblFooter{
+    font-family:'Microsoft YaHei';
+    font-size:1.3em;
+    color:black;
+}
+
 
 
 

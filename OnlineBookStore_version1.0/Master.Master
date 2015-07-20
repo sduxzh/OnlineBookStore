@@ -36,8 +36,11 @@
                             <asp:UpdatePanel ID="UpdatePanel_UserName" UpdateMode="Conditional" runat="server">
                                 <ContentTemplate>
                                     <!--两个label用以显示登录用户的用户名-->
-                                    <asp:Label ID="lblUserName" runat="server" CssClass="lblUserName" Text="用户名"></asp:Label>
-                                    <asp:Label ID="lblNameInput" runat="server" CssClass="lblNameInput" Text=""></asp:Label>
+                                    <asp:Label ID="lblUserName" runat="server" CssClass="lblUserName" Text="欢迎,"></asp:Label>
+                                    <asp:Label ID="lblNameInput" runat="server" CssClass="lblNameInput" Text="s"></asp:Label>
+                                    <%--我的购物车及我的订单两个按钮--%>
+                                    <asp:LinkButton ID="lkbShoppingCart" runat="server" CssClass="lkbUserOperation" Text="我的购物车"></asp:LinkButton>&nbsp;
+                        <asp:LinkButton ID="lkbUserOrder" runat="server" CssClass="lkbUserOperation" Text="我的订单"></asp:LinkButton>
                                 </ContentTemplate>
                             </asp:UpdatePanel>
                             <!--利用ScriptManager/UpdatePanel异步刷新用户名-->
@@ -85,7 +88,7 @@
                             <!--利用ScriptManager/UpdatePanel异步刷新退出按钮-->
                         </asp:Panel>
                     </td>
-                    </tr>
+                </tr>
                 <tr>
                     <td>
                         <!--首页第二栏面板-->
