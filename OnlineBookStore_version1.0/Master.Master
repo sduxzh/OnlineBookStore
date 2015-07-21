@@ -28,7 +28,7 @@
 
                         <asp:Panel ID="pnlTitle" runat="server" CssClass="pnlTitle">
                             <!--返回首页button-->
-                            <asp:LinkButton ID="cmdFirstPage" runat="server" CssClass="cmdFirstPage" Text="首页" Font-Underline="false"></asp:LinkButton>
+                            <asp:LinkButton ID="cmdFirstPage" PostBackUrl="MainPage.aspx" runat="server" CssClass="cmdFirstPage" Text="首页" Font-Underline="false"></asp:LinkButton>
 
                             <!--利用ScriptManager/UpdatePanel异步刷新用户名-->
                             <asp:ScriptManager ID="ScriptManager1" runat="server">
@@ -37,14 +37,14 @@
                                 <ContentTemplate>
                                     <!--两个label用以显示登录用户的用户名-->
                                     <asp:Label ID="lblUserName" runat="server" CssClass="lblUserName" Text="欢迎,"></asp:Label>
-                                    <asp:Label ID="lblNameInput" runat="server" CssClass="lblNameInput" Text="s"></asp:Label>
-                                    <%--我的购物车及我的订单两个按钮--%>
-                                    <asp:LinkButton ID="lkbShoppingCart" runat="server" CssClass="lkbUserOperation" Text="我的购物车"></asp:LinkButton>&nbsp;
-                        <asp:LinkButton ID="lkbUserOrder" runat="server" CssClass="lkbUserOperation" Text="我的订单"></asp:LinkButton>
+                                    <asp:Label ID="lblNameInput" runat="server" CssClass="lblNameInput" Text=""></asp:Label>
+                                    
                                 </ContentTemplate>
                             </asp:UpdatePanel>
                             <!--利用ScriptManager/UpdatePanel异步刷新用户名-->
-
+                            <%--我的购物车及我的订单两个按钮--%>
+                            <asp:LinkButton ID="lkbShoppingCart" runat="server" CssClass="lkbUserOperation" Text="我的购物车" OnClick="lkbShoppingCart_Click" Font-Underline="False"></asp:LinkButton>&nbsp;
+                            <asp:LinkButton ID="lkbUserOrder" runat="server" CssClass="lkbUserOperation" Text="我的订单" OnClick="lkbUserOrder_Click" Font-Underline="False"></asp:LinkButton>
                             <!--登录、注册、退出三个button-->
                             <%--登录按钮及其hover中展示页面--%>
                             <input type="button" value="登录" id="cmdLogin" />
@@ -76,7 +76,7 @@
 
                             </asp:Panel>
                             <%--注册按钮--%>
-                            <asp:LinkButton ID="lkbRegister" runat="server" CssClass="lkbRegister" Text="注册" Font-Underline="false"></asp:LinkButton>
+                            <asp:LinkButton ID="lkbRegister" runat="server" CssClass="lkbRegister" Text="注册" Font-Underline="false" OnClick="lkbRegister_Click"></asp:LinkButton>
 
                             <%--退出按钮--%>
                             <!--利用ScriptManager/UpdatePanel异步刷新退出按钮-->
@@ -92,9 +92,7 @@
                 <tr>
                     <td>
                         <!--首页第二栏面板-->
-                        <asp:Panel ID="pnlLogo" runat="server" CssClass="pnlLogo">
-                            <!--书店logo或其他适当图片-->
-                            <asp:Image ID="imgLogo" runat="server" CssClass="imgLogo" ImageUrl="~/Images/时雨最终.png" />
+                        <asp:Panel ID="pnlLogo" runat="server" CssClass="pnlLogo">                          
                             <!--search面板，包括搜索框、两个搜索button-->
                             <asp:Panel ID="pnlSearch" runat="server" CssClass="pnlSearch">
                                 <%--搜索框--%>
@@ -130,9 +128,6 @@
                                     </asp:UpdatePanel>
                                 </asp:Panel>
                             </asp:Panel>
-
-                            <!--书店logo或其他适当图片-->
-                            <asp:Image ID="imgSome" runat="server" CssClass="imgSome" />
                         </asp:Panel>
                     </td>
                 </tr>

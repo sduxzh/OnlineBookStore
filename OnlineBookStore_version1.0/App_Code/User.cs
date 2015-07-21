@@ -16,8 +16,8 @@ namespace OnlineBookStore.App_Code
         protected string password;
         protected Power power;
 
-        
-#region
+
+        #region
         public string Name
         {
             set { name = value; }
@@ -35,17 +35,17 @@ namespace OnlineBookStore.App_Code
             set { power = value; }
             get { return power; }
         }
-#endregion
+        #endregion
 
         public User()
         {
-            
+
         }
         public User(string name, string password)
         {
             Name = name;
             Password = password;
-            
+
         }
 
         /// <summary>
@@ -70,16 +70,16 @@ namespace OnlineBookStore.App_Code
                 //对用户密码进行匹配
                 if (dataSet.Tables[0].Rows[0]["Password"].ToString() == Password)
                 {
-                    
+
                     string power = dataSet.Tables[0].Rows[0]["Power"].ToString();//获取数据库中用户权限（string）
                     //将string权限转换为Power类型
                     switch (power)
                     {
                         case "Customer":
-                            Powers=Power.Customer;
+                            Powers = Power.Customer;
                             break;
                         case "Manager":
-                            Powers=Power.Manager;
+                            Powers = Power.Manager;
                             break;
                     }
                     if (Convert.ToInt32(dataSet.Tables[0].Rows[0]["LegalityState"]) == 0)
@@ -91,9 +91,9 @@ namespace OnlineBookStore.App_Code
                     {
                         sql.Close();//关闭sql连接
                         return 3;//账号被冻结，提示前台进行相应的操作
-                        
+
                     }
-                    
+
                 }
                 else
                 {
@@ -113,8 +113,8 @@ namespace OnlineBookStore.App_Code
         /// <returns></returns>
         public static Book QureyBookFromDbByBookID(string bookID)
         {
-            List<Book> queryBook = QueryBookFromDb("bookID:"+bookID);
-            if(queryBook.Count!=0)
+            List<Book> queryBook = QueryBookFromDb("bookID:" + bookID);
+            if (queryBook.Count != 0)
                 return queryBook[0];
             return null;
         }
@@ -125,17 +125,17 @@ namespace OnlineBookStore.App_Code
         /// <returns>List-Book对象</returns>
         public static List<Book> QueryBookFromDb(string queryConditions)
         {
-            List<Book> queryBooks=new List<Book>();
+            List<Book> queryBooks = new List<Book>();
             string cmdText = null;
             SqlConnection sql = DataBaseOperations.CreateConnection();//连接数据库
             //判定queryConditions查询条件是否为空
-            
-            if(queryConditions!=null)
+
+            if (queryConditions != null)
             {
-               cmdText=QueryBook.SqlCmdText(queryConditions);
+                cmdText = QueryBook.SqlCmdText(queryConditions);
             }
-            
-            DataSet data = DataBaseOperations.GetDataSet(cmdText,sql);//获取DataSet
+
+            DataSet data = DataBaseOperations.GetDataSet(cmdText, sql);//获取DataSet
             //遍历dataset，将图书添加到queryBooks列表中
             if (data != null)
             {
@@ -187,6 +187,55 @@ namespace OnlineBookStore.App_Code
 
 
         }
-       
+
+        /// <summary>
+        /// 推荐书籍
+        /// 按照销量查询
+        /// </summary>
+        /// <returns></returns>
+        public static List<Book> RecommendedBook()
+        {
+            List<Book> recommendedBook = new List<Book>();//推荐书籍List
+            SqlConnection sql = DataBaseOperations.CreateConnection();//sql连接符
+            string cmdText = "select top 12 * from Book order by Rating";//按照销量进行选择
+            DataSet data = DataBaseOperations.GetDataSet(cmdText, sql);//获取数据
+            sql.Close();//关闭连接符
+            for (int i = 0; i < data.Tables[0].Rows.Count; i++)
+            {
+                Book tempBook = new Book(data.Tables[0].Rows[i]["BookID"].ToString(),
+                    data.Tables[0].Rows[i]["BookName"].ToString(), data.Tables[0].Rows[i]["BookAuthor"].ToString(),
+                    Convert.ToDecimal(data.Tables[0].Rows[i]["BookPrice"]),
+                    data.Tables[0].Rows[i]["BookPress"].ToString(), data.Tables[0].Rows[i]["BookDetail"].ToString(),
+                    data.Tables[0].Rows[i]["BookCategory"].ToString(), data.Tables[0].Rows[i]["BookImageURL"].ToString(),
+                    Convert.ToInt32(data.Tables[0].Rows[i]["Inventory"].ToString()),
+                    Convert.ToInt32(data.Tables[0].Rows[i]["Rating"]), data.Tables[0].Rows[i]["ShelveDate"].ToString());
+                recommendedBook.Add(tempBook);
+            }
+            return recommendedBook;
+
+            }
+
+        public static List<Book> NewBook()
+        {
+            List<Book> newBook = new List<Book>();//推荐书籍List
+            SqlConnection sql = DataBaseOperations.CreateConnection();//sql连接符
+            string cmdText = "select * from Book order by ShelveDate desc ";//按照销量进行选择
+            DataSet data = DataBaseOperations.GetDataSet(cmdText, sql);//获取数据
+            sql.Close();//关闭连接符
+            for (int i = 0; i < data.Tables[0].Rows.Count; i++)
+            {
+                Book tempBook = new Book(data.Tables[0].Rows[i]["BookID"].ToString(),
+                    data.Tables[0].Rows[i]["BookName"].ToString(), data.Tables[0].Rows[i]["BookAuthor"].ToString(),
+                    Convert.ToDecimal(data.Tables[0].Rows[i]["BookPrice"]),
+                    data.Tables[0].Rows[i]["BookPress"].ToString(), data.Tables[0].Rows[i]["BookDetail"].ToString(),
+                    data.Tables[0].Rows[i]["BookCategory"].ToString(), data.Tables[0].Rows[i]["BookImageURL"].ToString(),
+                    Convert.ToInt32(data.Tables[0].Rows[i]["Inventory"].ToString()),
+                    Convert.ToInt32(data.Tables[0].Rows[i]["Rating"]), data.Tables[0].Rows[i]["ShelveDate"].ToString());
+                newBook.Add(tempBook);
+            }
+            return newBook;
+
+        }
+
     }
 }

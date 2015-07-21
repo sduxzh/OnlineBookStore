@@ -22,30 +22,30 @@ namespace OnlineBookStore.App_Code
             sb.Append("select * from Book where");
 
             int i2 = 1;
-            if (queryBook.bookID != null)
+            if (queryBook.bookID !=null)
             {
                 sb.Append(" BookID='" + queryBook.bookID + "'" + AddAndOrNot(i2, length));
                 i2++;
             }
-            if (queryBook.bookName != null)
+            if (queryBook.bookName !=null)
             {
                 sb.Append(" BookName='" + queryBook.bookName + "'" + AddAndOrNot(i2, length));
                 i2++;
             }
 
-            if (queryBook.bookAuthor != null)
+            if (queryBook.bookAuthor !=null)
             {
                 sb.Append(" BookAuthor='" + queryBook.bookAuthor + "'" + AddAndOrNot(i2, length));
                 i2++;
             }
 
-            if (queryBook.bookPress != null)
+            if (queryBook.bookPress !=null)
             {
                 sb.Append(" BookPress='" + queryBook.bookPress + "'" + AddAndOrNot(i2, length));
                 i2++;
             }
 
-            if (queryBook.bookCategory != null)
+            if (queryBook.bookCategory !=null)
             {
                 sb.Append(" BookCategory='" + queryBook.bookCategory + "'" + AddAndOrNot(i2, length));
                 i2++;

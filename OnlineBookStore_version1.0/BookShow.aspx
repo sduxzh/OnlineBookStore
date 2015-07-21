@@ -3,149 +3,124 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel='stylesheet' type='text/css' href="css/Category.css"/>
     <link rel='stylesheet' type='text/css' href="css/BookShow.css"/>
+    <link rel="stylesheet" type="text/css" href="css/Main.css" />
+    <style  type="text/css">
+        body{
+            height:1900px;
+        }
+        .pnlBookR{
+    width:216px;
+    height:405px;
+}
+        .imgBookR,.imgBookR:visited{
+    width:196px;
+    height:280px;
+    margin-left:10px;
+    margin-right:10px;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+.imgBookR:hover{
+    width:210px;
+    height:300px;
+    margin:0px 3px 0px 3px;
+    transition:all .5s;
+    -webkit-transition:all .5s;
+    -moz-transition:all .5s;
+    -o-transition:all .5s;
+}
+.PCategory{
+    position:absolute;
+    top:280px;
+    left:5px;
+    width:215px;
+    height:560px;
+}
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <!--左侧分类栏-->
     <!--点击分类，显示对应分类书籍-->
     <asp:Panel ID="P_Category" runat="server" CssClass="PCategory">
-        
-        <asp:LinkButton ID="lbEducation" runat="server" CssClass="CateButton">教育</asp:LinkButton>
-        <asp:LinkButton ID="lbArt" runat="server" CssClass="CateButton">文艺</asp:LinkButton>
-        <asp:LinkButton ID="lbScience" runat="server" CssClass="CateButton">科技</asp:LinkButton>
-        <asp:LinkButton ID="lbLife" runat="server" CssClass="CateButton">生活</asp:LinkButton>
-        <asp:LinkButton ID="lbHumanity" runat="server" CssClass="CateButton">人文社科</asp:LinkButton>
-        <asp:LinkButton ID="lbJuvenile" runat="server" CssClass="CateButton">少儿读物</asp:LinkButton>
-        </asp:Panel>
+
+        <asp:LinkButton ID="lbEducation" CommandName="Education" CommandArgument="Education" runat="server" OnCommand="Category_OnClick" CssClass="CateButton">教育</asp:LinkButton>
+                    <asp:LinkButton ID="lbArt" runat="server" CommandName="Art" CommandArgument="Literature" OnCommand="Category_OnClick" CssClass="CateButton">文艺</asp:LinkButton>
+                    <asp:LinkButton ID="lbScience" runat="server" CommandName="Science" CommandArgument="Science"  OnCommand="Category_OnClick" CssClass="CateButton" >科技</asp:LinkButton>
+                    <asp:LinkButton ID="lbLife" runat="server" CommandName="Life" CommandArgument="Life"  OnCommand="Category_OnClick" CssClass="CateButton">生活</asp:LinkButton>
+                    <asp:LinkButton ID="lbHumanity" runat="server" CommandName="Humantity" CommandArgument="Humanity" OnCommand="Category_OnClick" CssClass="CateButton">人文社科</asp:LinkButton>
+                    <asp:LinkButton ID="lbJuvenile" runat="server" CommandName="Children" CommandArgument="Children" OnCommand="Category_OnClick" CssClass="CateButton">少儿读物</asp:LinkButton>
+    </asp:Panel>
 
     <!--左侧广告位-->
-    <asp:ImageButton ID="ImgAd" runat="server" CssClass="Advertice" AlternateText="广告位招租"/>
+    <asp:ImageButton ID="ImgAd" runat="server" CssClass="Advertice" AlternateText="广告位招租" />
 
     <!--书籍展示-->
     <asp:Panel ID="P_BookShow" runat="server" CssClass="P_BookShow">
         <!--显示当前位置：分类与具体条件-->
         当前&gt;<asp:Label ID="lblNowCategory" runat="server" Text="[当前分类]"></asp:Label>
-        &gt;<asp:Label ID="lblNowCon" runat="server" Text="[当前条件]"></asp:Label>
+        &gt;<asp:Label ID="lblNowCon" runat="server" Text="[当前条件]"></asp:Label><br />
 
         <!--书籍展示控件-->
-        <asp:GridView ID="GV_BookShow" runat="server" CssClass="GV_BookShow" AutoGenerateColumns="False" ShowHeader="False" CellPadding="4" CellSpacing="15" AllowCustomPaging="True" AllowPaging="True" PageIndex="1" PageSize="5">
-            <Columns>
-                <asp:TemplateField>
-                    <ItemTemplate>
-                        <table class="Table">
-                            <tr>
-                                <td class="Table1">
 
-                                    <!--书籍封面，点击链接到具体书籍介绍页面-->
-                                    <asp:ImageButton ID="ImgCover" runat="server" AlternateText="封面" CssClass="Cover" ImageUrl="~/Picture/图片添加按钮.png" OnClick="ImgCover_Click" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="Table2">
-                                    <asp:Label ID="lblBookName" runat="server" Text="书名："></asp:Label>
-
-                                    <!--书名，点击链接到具体书籍介绍页面-->
-                                    <asp:LinkButton ID="lbBookName_Real" runat="server" CssClass="BookLink" OnClick="lbBookName_Real_Click">[BookName]</asp:LinkButton>
+        <asp:ListView ID="ListView1" OnItemCommand="ListView1_OnItemCommand" runat="server" 
+            GroupItemCount="4">
+            <GroupTemplate>
+                <tr id="itemPlaceholderContainer" runat="server">
+                    <td id="itemPlaceholder" runat="server"></td>
+                </tr>
+            </GroupTemplate>
+            <ItemTemplate>
+                <td runat="server" class="style1"
+                    style="background-color: #FFFFFF; color: #284775;">
+                    <asp:Panel ID="pnlBookR" runat="server" CssClass="pnlBookR">
+                        <asp:ImageButton ID="icmdBookRecommend" ImageUrl='<%# Eval("bookImageURL") %>' runat="server" CssClass="imgBookR" />
                                     <br />
-                                    <asp:Label ID="lblPrice" runat="server" Text="价格："></asp:Label>
-
-                                    <!--书籍价格-->
-                                    <asp:Label ID="lblPrice_Real" runat="server" Text="[Price]"></asp:Label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="Table3">
-                                    <!--加入购物车-->
-                                    <asp:LinkButton ID="lbAddCart" runat="server" CssClass="AddCart" OnClick="lbAddCart_Click">加入购物车</asp:LinkButton>
-                                </td>
-                            </tr>
-                        </table>
-                    </ItemTemplate>
-                </asp:TemplateField>
-            </Columns>
-            <Columns>
-                <asp:TemplateField>
-                    <ItemTemplate>
-                        <table class="Table">
-                            <tr>
-                                <td class="Table1">
-                                    <asp:ImageButton ID="ImageButton1" runat="server" AlternateText="封面" CssClass="Cover" ImageUrl="~/Picture/图片添加按钮.png" OnClick="ImgCover_Click" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="Table2">
-                                    <asp:Label ID="Label1" runat="server" Text="书名："></asp:Label>
-                                    <asp:LinkButton ID="LinkButton1" runat="server" CssClass="BookLink" OnClick="lbBookName_Real_Click">[BookName]</asp:LinkButton>
+                                    &nbsp;<asp:LinkButton ID="lkbBookName" Text='<%# Eval("bookName") %>' runat="server" CssClass="lkbBookName"></asp:LinkButton>
                                     <br />
-                                    <asp:Label ID="Label2" runat="server" Text="价格："></asp:Label>
-                                    <asp:Label ID="Label3" runat="server" Text="[Price]"></asp:Label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="Table3">
-                                    <asp:LinkButton ID="LinkButton2" runat="server" CssClass="AddCart" OnClick="lbAddCart_Click">加入购物车</asp:LinkButton>
-                                </td>
-                            </tr>
-                        </table>
-                    </ItemTemplate>
-                </asp:TemplateField>
-            </Columns>
-            <Columns>
-                <asp:TemplateField>
-                    <ItemTemplate>
-                        <table class="Table">
-                            <tr>
-                                <td class="Table1">
-                                    <asp:ImageButton ID="ImageButton2" runat="server" AlternateText="封面" CssClass="Cover" ImageUrl="~/Picture/图片添加按钮.png" OnClick="ImgCover_Click" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="Table2">
-                                    <asp:Label ID="Label4" runat="server" Text="书名："></asp:Label>
-                                    <asp:LinkButton ID="LinkButton3" runat="server" CssClass="BookLink" OnClick="lbBookName_Real_Click">[BookName]</asp:LinkButton>
+                                    &nbsp;<asp:Label ID="lblAuthor" Text="作者" runat="server" CssClass="lblAuthorName"></asp:Label>
+
+                                    <asp:Label ID="lblAuthorName" Text='<%# Eval("bookAuthor") %>' runat="server" CssClass="lblAuthorName"></asp:Label>
                                     <br />
-                                    <asp:Label ID="Label5" runat="server" Text="价格："></asp:Label>
-                                    <asp:Label ID="Label6" runat="server" Text="[Price]"></asp:Label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="Table3">
-                                    <asp:LinkButton ID="LinkButton4" runat="server" CssClass="AddCart" OnClick="lbAddCart_Click">加入购物车</asp:LinkButton>
-                                </td>
-                            </tr>
-                        </table>
-                    </ItemTemplate>
-                </asp:TemplateField>
-            </Columns>
-            <Columns>
-                <asp:TemplateField>
-                    <ItemTemplate>
-                        <table class="Table">
-                            <tr>
-                                <td class="Table1">
-                                    <asp:ImageButton ID="ImageButton3" runat="server" AlternateText="封面" ImageUrl="~/Picture/图片添加按钮.png" CssClass="Cover" OnClick="ImgCover_Click" /></td>
-                            </tr>
-                            <tr>
-                                <td class="Table2">
+                                    &nbsp;<asp:Button ID="cmdBuyNow" CommandName="BuyNow" CommandArgument='<%# Eval("BookID") %>' runat="server" CssClass="cmdBookOperation" Text="立即购买" />
+                                    &nbsp;<asp:Button ID="cmdAddShoppingCart" CommandName="AddBookToShoppingCart" CommandArgument='<%# Eval("BookID") %>' runat="server" CssClass="cmdBookOperation" Text="加入购物车" />
+                    </asp:Panel>
+                </td>
+            </ItemTemplate>
+            <LayoutTemplate>
+                <table runat="server">
+                    <tr runat="server">
+                        <td runat="server">
+                            <table id="groupPlaceholderContainer" runat="server" border="1"
+                                style="background-color: #FFFFFF; border-collapse: collapse; border-color: #999999; border-style: none; border-width: 1px; font-family: 'Microsoft YaHei'">
+                                <tr id="groupPlaceholder" runat="server">
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr runat="server">
+                        <td runat="server"
+                            style="text-align: center; background-color: #5CACEE; font-family: 'Microsoft YaHei'; color: #FFFFFF; border-radius: 5px;">
+                            <asp:DataPager ID="DataPager1" runat="server" PageSize="16">
+                                <Fields>
+                                    <%--<asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" 
+                                        ShowLastPageButton="True" />--%>
+                                    <asp:TemplatePagerField>
+                                        <PagerTemplate>
+                                            <input type="button" id="cmdPagerApart0" runat="server" class="cmdPagerApart" />&nbsp;&nbsp;&nbsp;
+                                            <input type="button" id="cmdPagerApart1" runat="server" class="cmdPagerApart" />&nbsp;&nbsp;&nbsp;
+                                            <input type="button" id="cmdPagerApart2" runat="server" class="cmdPagerApart" />&nbsp;&nbsp;&nbsp;
+                                            <input type="button" id="cmdPagerApart3" runat="server" class="cmdPagerApart" />
+                                        </PagerTemplate>
+                                    </asp:TemplatePagerField>
+                                </Fields>
+                            </asp:DataPager>
+                        </td>
+                    </tr>
+                </table>
+            </LayoutTemplate>
 
-                                    <asp:Label ID="Label7" runat="server" Text="书名："></asp:Label>
-                                    <asp:LinkButton ID="LinkButton5" runat="server" CssClass="BookLink" OnClick="lbBookName_Real_Click">[BookName]</asp:LinkButton>
-                                    <br />
-                                    <asp:Label ID="Label8" runat="server" Text="价格："></asp:Label>
-                                    <asp:Label ID="Label9" runat="server" Text="[Price]"></asp:Label></td>
-                            </tr>
-                            <tr>
-                                <td class="Table3">
-                                    <asp:LinkButton ID="LinkButton6" runat="server" CssClass="AddCart" OnClick="lbAddCart_Click">加入购物车</asp:LinkButton></td>
-
-                            </tr>
-                        </table>
-                    </ItemTemplate>
-                </asp:TemplateField>
-               </Columns>
-             <PagerSettings NextPageText="下一页&gt;" PageButtonCount="5" PreviousPageText="&lt;上一页" />
-        </asp:GridView>
-
+        </asp:ListView>
     </asp:Panel>
 
 
@@ -153,33 +128,69 @@
     <asp:Panel ID="P_Recommend" runat="server" CssClass="P_Recommend">
 
         <asp:Image ID="ImgRecommend" runat="server" Height="30px" Width="100px" CssClass="ImgRecommend" />
-        <asp:GridView ID="GV_Recommend" runat="server" CssClass="GV_Recommend" AutoGenerateColumns="False" ShowHeader="False" CellPadding="1">
-            <Columns>
-                <asp:TemplateField>
-                    <ItemTemplate>
-                        <table class="R_Table">
-                            <tr>
-                                <td class="R_Table1">
-                                    <!--推荐书籍封面，点击链接到具体书籍介绍页面-->
-                                    <asp:ImageButton ID="ImgRecomCover" runat="server" AlternateText="封面" CssClass="R_Cover" ImageUrl="~/Picture/图片添加按钮.png" OnClick="ImgCover_Click" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="R_Table2">
-                                    <!--推荐书名，点击链接到具体书籍介绍页面-->
-                                    <asp:LinkButton ID="lbRecomName" runat="server" CssClass="BookLink" OnClick="lbBookName_Real_Click">[BookName]</asp:LinkButton>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <br />
-                                </td>
-                            </tr>
-                        </table>
-                    </ItemTemplate>
-                </asp:TemplateField>
-            </Columns>
-        </asp:GridView>
+        <asp:ListView ID="ListView2" runat="server" >
 
+
+            <GroupTemplate>
+                <tr id="itemPlaceholderContainer" runat="server">
+                    <td id="itemPlaceholder" runat="server"></td>
+                </tr>
+            </GroupTemplate>
+
+            <ItemTemplate>
+                <td runat="server"
+                    style="background-color: #FFFFFF">
+
+                    <%--上新书籍的图片，书名及作者--%>
+                    <asp:Image ID="imgBookNew0" runat="server" CssClass="imgBookNew0" />
+                    <br />
+                </td>
+                <td runat="server"
+                    style="background-color: #FFFFFF">
+                    <asp:LinkButton ID="lkbNewBookName0" runat="server" CssClass="lkbBookName0" Font-Underline="false"></asp:LinkButton><br />
+                    <br />
+                    <%--“作者”及作者姓名展示，第二个label需绑定数据--%>
+                    <asp:Label ID="lblBookNewName0" runat="server" CssClass="lblAuthorName00" Text="作者："></asp:Label>
+                    <asp:Label ID="lblNewAuthorName0" runat="server" Text="" CssClass="lblAuthorName01"></asp:Label>
+                    <br />
+                    <br />
+                    <br />
+                    <%--新书籍立即购买及加入购物车按钮--%>
+                         
+                    &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<asp:Button ID="cmdNewBuyNow0" runat="server" CssClass="cmdBookOperation00" Text="立即购买" /><br />
+                    &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<asp:Button ID="cmdNewAddShoppingCart0" runat="server" CssClass="cmdBookOperation01" Text="加入购物车" />
+
+                </td>
+            </ItemTemplate>
+            <LayoutTemplate>
+                <table runat="server">
+                    <tr runat="server">
+                        <td runat="server">
+                            <table id="groupPlaceholderContainer" runat="server" border="1"
+                                style="background-color: #FFFFFF; border-collapse: collapse; border-color: #999999; border-style: none; border-width: 1px; font-family: Verdana, Arial, Helvetica, sans-serif;">
+                                <tr id="groupPlaceholder" runat="server">
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr runat="server" visible="false">
+                        <td runat="server"
+                            style="text-align: center; background-color: #5cacee; font-family: 'Microsoft YaHei'; color: #FFFFFF">
+                            <asp:DataPager ID="DataPager1" runat="server" PageSize="7">
+                                <Fields>
+                                    <asp:TemplatePagerField>
+                                        <PagerTemplate>
+                                            <input type="button" id="cmdPagerApart4" runat="server" class="cmdPagerApart" />&nbsp;&nbsp;
+                                            <input type="button" id="cmdPagerApart5" runat="server" class="cmdPagerApart" />
+
+                                        </PagerTemplate>
+                                    </asp:TemplatePagerField>
+                                </Fields>
+                            </asp:DataPager>
+                        </td>
+                    </tr>
+                </table>
+            </LayoutTemplate>
+        </asp:ListView>
     </asp:Panel>
 </asp:Content>

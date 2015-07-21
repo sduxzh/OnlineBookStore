@@ -16,7 +16,7 @@ namespace OnlineBookStore.App_Code
         {
             //云服务链接字符
             //string ConnectionString = "Server=tcp:e5b8yv2z8e.database.chinacloudapi.cn,1433;Database=CXB;User ID=sduxzh@e5b8yv2z8e;Password=cclu1314H;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;";
-            //string ConnectionString = "Server=211.87.230.69;Database=OnlineBookStore;User ID=sa;Password=123123123;Connection Timeout=30;";
+            //string ConnectionString = "Server=211.87.230.77;Database=OnlineBookStore;User ID=sa;Password=123123123;Connection Timeout=30;";
             //本地数据库连接字符
             const string ConnectionString = "Server=ZHIHAO;Database=OnlineBookStore;Trusted_Connection=True;";//数据库实例-数据配置字符
 

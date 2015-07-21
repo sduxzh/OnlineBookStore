@@ -1,10 +1,11 @@
 ﻿body {
+
 }
 .P_BookShow{
     position:absolute;
     top:240px;
-    left:225px;
-    height:1930px;
+    left:200px;
+    height:1710px;
     width:910px;
     font-family:'微软雅黑','楷体';
 }
@@ -17,8 +18,8 @@
 .P_Recommend{
     position:absolute;
     top:250px;
-    left:1140px;
-    height:1920px;
+    left:1080px;
+    height:1700px;
     width:205px;
     border-left:2px solid #5cacee  ;
 }
@@ -115,8 +116,8 @@
         }
              .Advertice{
                  position:absolute;
-                 top:800px;
+                 top:865px;
                  left:15px;
                  width:170px;
-                 height:1330px;
+                 height:930px;
              }

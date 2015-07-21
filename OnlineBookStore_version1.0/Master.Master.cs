@@ -110,6 +110,7 @@ public partial class Master : System.Web.UI.MasterPage
         string queryConditon = "bookName:" + txtSearch.Text;
         List<Book> bookList = User.QueryBookFromDb(queryConditon);
         Session["QueryBookList"] = bookList;//将查询到的bookList保存至Session中
+        Session["FromWhichPage"] = 0;
         Response.Redirect("BookShow.aspx");
     }
 
@@ -125,16 +126,86 @@ public partial class Master : System.Web.UI.MasterPage
         string bookAuthor = txtAuthorN.Text;
         string bookPress = txtPublisherN.Text;
 
-        if (bookName == null && bookID == null & bookAuthor == null && bookPress == null)
+        if (bookName == "" && bookID == "" & bookAuthor == ""&& bookPress == "")
         {
             lblSearchConditionSate.Text = "请至少输入一个搜索条件";
         }
+        //组装查询语句，供生成数据库查询语句
+        string queryCondition=null;
+        if (bookName != "")
+        {
+            AddSpaceOrNot(queryCondition);
+            queryCondition += "bookName:" + bookName;
+        }
 
-        string queryCondition = "bookName:" + bookName + "bookID:" + bookID + "bookAuthor:" + bookAuthor + "bookPress:" +
-                                 bookPress;//组装查询语句，供生成数据库查询语句
-        string _qureyConditon = QueryBook.SqlCmdText(queryCondition);//数据库查询语句
-        List<Book> queryBookList= User.QueryBookFromDb(_qureyConditon);//获取到需要查询的书籍
+        if (bookID != "")
+        {
+            AddSpaceOrNot(queryCondition);
+            queryCondition += "bookID:" + bookID;
+        }
+        if (bookAuthor != "")
+        {
+            AddSpaceOrNot(queryCondition);
+            queryCondition += "bookAuthor:" + bookAuthor;
+        }
+        if (bookPress != "")
+        {
+            AddSpaceOrNot(queryCondition);
+            queryCondition += "bookPress:" +bookPress;
+        }
+
+        List<Book> queryBookList = User.QueryBookFromDb(queryCondition);//获取到需要查询的书籍
         Session["QueryBookList"] = queryBookList;//将查询到的bookList保存至Session中
+        Session["FromWhichPage"] = 0;
         Response.Redirect("BookShow.aspx");
+    }
+
+    private void AddSpaceOrNot(string queryConditon)
+    {
+        if (queryConditon != null)
+            queryConditon += " ";
+    }
+    /// <summary>
+    /// 跳转到购物车模块
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    protected void lkbShoppingCart_Click(object sender, EventArgs e)
+    {
+        if (Session["User"] != null)
+        {
+            Response.Redirect("UserShoppingCart.aspx");
+        }
+        else
+        {
+            Response.Write("<script>alert('亲，登录后才可以查看哦~')</script>"); 
+        }
+    }
+
+    /// <summary>
+    /// 跳转到订单模块
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    protected void lkbUserOrder_Click(object sender, EventArgs e)
+    {
+        if (Session["User"] != null)
+        {
+            Response.Redirect("UserOrder.aspx");
+        }
+        else
+        {
+            Response.Write("<script>alert('亲，登录后才可以查看哦~')</script>");
+        }
+    }
+
+    /// <summary>
+    /// 跳转到注册界面
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    protected void lkbRegister_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Register.aspx");
     }
 }

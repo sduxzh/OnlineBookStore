@@ -1,437 +1,472 @@
-﻿ .p {
-            height: 2037px;
-            width: 1340px;
-        }
+﻿.p {
+    height: 2037px;
+    width: 1340px;
+}
 
-        .BookDetail {
-            width: 421px;
-            height: 282px;
-            position: absolute;
-            top: 20px;
-            left: 230px;
-            z-index: 2;
-        }
+.BookDetail {
+    width: 421px;
+    height: 282px;
+    position: absolute;
+    top: 20px;
+    left: 300px;
+    z-index: 2;
+}
 
-        .Imagebtn_Picture {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            z-index: 2;
-            width: 195px;
-            height: 238px;
-        }
-
-       
-        .Panel_Evaluation {
-            width: 845px;
-            height: 16px;
-            position: absolute;
-            top: 60px;
-            left: 10px;
-            z-index: 2;
-        }
-
-        .Detail {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            z-index: 2;
-            border: 2px solid;
-            border-radius: 15px;
-            display: block;
-            font-weight: bold;
-            color: #FFFFFF;
-            width: 80px;
-            height: 40px;
-            line-height: 40px;
-            text-align: center;
-            padding: 4px;
-            margin: 4px;
-            text-decoration: none;
-            font-size: large;
-            font-family: '微软雅黑','楷体';
-            transition: width 0.5s,height 0.5s;
-        }
-
-            .Detail:link, .Detail:visited {
-                background-color: #5cacee;
-            }
-
-            .Detail:hover, .Detail:active {
-                background-color: #ff6a00;
-                width: 100px;
-                height: 45px;
-            }
+.Imagebtn_Picture {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    z-index: 2;
+    width: 210px;
+    height: 300px;
+}
 
 
 
-        .Envaluation {
-            position: absolute;
-            top: 10px;
-            left: 110px;
-            z-index: 2;
-            border: 2px solid;
-            border-radius: 15px;
-            display: block;
-            font-weight: bold;
-            color: #FFFFFF;
-            width: 80px;
-            height: 40px;
-            line-height: 40px;
-            text-align: center;
-            padding: 4px;
-            margin: 4px;
-            text-decoration: none;
-            font-size: large;
-            font-family: '微软雅黑','楷体';
-            transition: width 0.5s,height 0.5s;
-        }
 
-            .Envaluation:link, .Envaluation:visited {
-                background-color: #5cacee;
+.Detail {
+    position: absolute;
     top: 10px;
-    left: 135px;
+    left: 10px;
+    z-index: 2;
+    border: 2px solid;
+    border-radius: 15px;
+    display: block;
+    font-weight: bold;
+    color: #FFFFFF;
+    width: 80px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    padding: 4px;
+    margin: 4px;
+    text-decoration: none;
+    font-size: large;
+    font-family: '微软雅黑','楷体';
+    transition: width 0.5s,height 0.5s;
 }
 
-            .Envaluation:hover, .Envaluation:active {
-                background-color: #ff6a00;
-                width: 100px;
-                height: 45px;
-            }
+    .Detail:link, .Detail:visited {
+        background-color: #5cacee;
+    }
 
-        .Quick {
-            position: absolute;
-            top: 310px;
-            left: 220px;
-            z-index: 2;
-            border: 2px solid;
-            border-radius: 15px;
-            display: block;
-            font-weight: bold;
-            color: #FFFFFF;
-            width: 80px;
-            height: 40px;
-            line-height: 40px;
-            text-align: center;
-            padding: 4px;
-            margin: 4px;
-            text-decoration: none;
-            font-size: large;
-            font-family: '微软雅黑','楷体';
-            transition: width 0.5s,height 0.5s;
-        }
+    .Detail:hover, .Detail:active {
+        background-color: #ff6a00;
+        width: 100px;
+        height: 45px;
+    }
 
-            .Quick:link, .Quick:visited {
-                background-color: #5cacee;
-    top: 312px;
-    left: 512px;
+
+
+.Envaluation {
+    position: absolute;
+    top: 10px;
+    left: 110px;
+    z-index: 2;
+    border: 2px solid;
+    border-radius: 15px;
+    display: block;
+    font-weight: bold;
+    color: #FFFFFF;
+    width: 80px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    padding: 4px;
+    margin: 4px;
+    text-decoration: none;
+    font-size: large;
+    font-family: '微软雅黑','楷体';
+    transition: width 0.5s,height 0.5s;
 }
 
-            .Quick:hover, .Quick:active {
-                background-color: #ff6a00;
-            }
+    .Envaluation:link, .Envaluation:visited {
+        background-color: #5cacee;
+        top: 10px;
+        left: 135px;
+    }
 
+    .Envaluation:hover, .Envaluation:active {
+        background-color: #ff6a00;
+        width: 100px;
+        height: 45px;
+    }
 
-        .Shoppingcar {
-            position: absolute;
-            top: 310px;
-            left: 390px;
-            z-index: 2;
-            border: 2px solid;
-            border-radius: 15px;
-            display: block;
-            font-weight: bold;
-            color: #FFFFFF;
-            width: 140px;
-            height: 40px;
-            line-height: 40px;
-            text-align: center;
-            padding: 4px;
-            margin: 4px;
-            text-decoration: none;
-            font-size: large;
-            font-family: '微软雅黑','楷体';
-            transition: width 0.5s,height 0.5s;
-        }
-
-            .Shoppingcar:link, .Shoppingcar:visited {
-                background-color: #5cacee;
-    top: 310px;
-    left: 257px;
+.Quick {
+    position: absolute;
+    top: 300px;
+    left: 320px;
+    z-index: 2;
+    border: 2px solid;
+    border-radius: 15px;
+    display: block;
+    font-weight: bold;
+    color: #FFFFFF;
+    width: 80px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    padding: 4px;
+    margin: 4px;
+    text-decoration: none;
+    font-size: large;
+    font-family: '微软雅黑','楷体';
+    transition: width 0.5s,height 0.5s;
 }
 
-            .Shoppingcar:hover, .Shoppingcar:active {
-                background-color: #ff6a00;
-            }
+    .Quick:link, .Quick:visited {
+        background-color: #5cacee;
+        top: 312px;
+        left: 512px;
+    }
+
+    .Quick:hover, .Quick:active {
+        background-color: #ff6a00;
+    }
 
 
-
-
-
-
-        .Panel_Recommond {
-            width: 250px;
-            height: 1400px;
-            position: absolute;
-            top: 310px;
-            left: 1050px;
-            z-index: 1;
-            background-color: #FFFFFF;
-            border-radius: 10px;
-        }
-
-        .Panel_Recommond1 {
-            width: 250px;
-            height: 300px;
-            position: absolute;
-            top: 10px;
-            left: 20px;
-            z-index: 2;
-            background-color:#808080;
-            border-radius: 10px;
-        }
-
-        .Panel_Recommond2 {
-            width: 250px;
-            height: 300px;
-            position: absolute;
-            top: 370px;
-            left: 20px;
-            z-index: 2;
-            background-color: #808080;
-            border-radius: 10px;
-        }
-
-       .Panel_Recommond3 {
-            width: 250px;
-            height: 300px;
-            position: absolute;
-            top: 730px;
-            left: 20px;
-            z-index: 2;
-            background-color: #808080;
-            border-radius: 10px;
-        }
-
-        .Panel_Recommond4 {
-            width: 250px;
-            height: 300px;
-            position: absolute;
-            top: 1090px;
-            left: 20px;
-            z-index: 2;
-            background-color: #808080;
-            border-radius: 10px;
-        }
-
-        .Imagebtn_Recommond {
-            position: absolute;
-            top: 0px;
-            left: 0px;
-            z-index: 3;
-        }
-
-
-        .Recommond_Name1 {
-            position: absolute;
-            top: 242px;
-            left: 7px;
-            z-index: 3;
-            color: #000000;
-            text-align: center;
-            font-size: medium;
-            font-family: '微软雅黑','楷体';
-        }
-
-            .Recommond_Name1:link, .Recommond_Name1:visited {
-                color: #000000;
-            }
-
-            .Recommond_Name1:hover, .Recommond_Name1:active {
-                color: #5cacee;
-            }
-
-
-
-        .Recommond_Name2 {
-            position: absolute;
-            top: 243px;
-            left: 3px;
-            z-index: 3;
-            color: #000000;
-            text-align: center;
-            font-size: medium;
-            font-family: '微软雅黑','楷体';
-        }
-
-            .Recommond_Name2:link, .Recommond_Name2:visited {
-                color: #000000;
-            }
-
-            .Recommond_Name2:hover, .Recommond_Name2:active {
-                color:#5cacee;
-            }
-
-
-        .Recommond_Name3 {
-            position: absolute;
-            top: 239px;
-            left: 4px;
-            z-index: 3;
-            color: #000000;
-            text-align: center;
-            font-size: medium;
-            font-family: '微软雅黑','楷体';
-        }
-
-            .Recommond_Name3:link, .Recommond_Name3:visited {
-                color: #000000;
-            }
-
-            .Recommond_Name3:hover, .Recommond_Name3:active {
-                color:#5cacee;
-            }
-
-        .Recommond_Name4 {
-            position: absolute;
-            top: 234px;
-            left: 8px;
-            z-index: 3;
-            color: #000000;
-            text-align: center;
-            font-size: medium;
-            font-family: '微软雅黑','楷体';
-        }
-
-            .Recommond_Name4:link, .Recommond_Name4:visited {
-                color: #000000;
-            }
-
-            .Recommond_Name4:hover, .Recommond_Name4:active {
-                color: #5cacee;
-            }
-
-        .GridView1 {
-            width: 699px;
-            height: 498px;
-            position: absolute;
-            top: 0px;
-            left: -1px;
-            z-index: 3;
-        }
-
-        .Panel_Detail {
-            width: 1037px;
-            height: 16px;
-            position: absolute;
-            top: 60px;
-            left: 10px;
-            z-index: 2;
-        }
-
-        .Panel1 {
-            position: absolute;
-            top: 300px;
-            left: 60px;
-            height: 400px;
-            width: 800px;
-            background-color: #FFFFFF;
-            z-index: 1;
-            border-radius: 10px;
-        }
-
-        .Panel2 {
-            position: absolute;
-            top: 800px;
-            left: 60px;
-            height: 900px;
-            width: 850px;
-            background-color: #FFFFFF;
-            z-index: 1;
-            border-radius: 10px;
-        }
-        .table {
-            width: 102%;
-            height: 285px;
-        }
-        .td5 {
-            width: 104px;
-        }
-        .td2 {
-            width: 104px;
-            height: 46px;
-        }
-        .td3 {
-            height: 46px;
-        }
-        .td1 {
-            height: 59px;
-        }
-        .td4 {
-            width: 104px;
-            height: 25px;
-        }
-        .td6 {
-            height: 25px;
-        }
-        .Label_Name{
-            position: absolute;
-            top: 2px;
-            left: 4px;
-            z-index: 1;
-            width: 206px;
-            height: 36px;
-            font-family:"黑体";
-            font-size:xx-large;
-            
-
-        }
-        .Label_Price {
-            position: absolute;
-            top: 200px;
-            left: 111px;
-            color:#ff6a00;
-            font-size:x-large;
-            font-family:"黑体";
-            
-            
-        }
-        .Label_Author{
-            position: absolute;
-            top: 113px;
-            left: 111px;
-            z-index: 1;
-            color:#0094ff
-}
-        .Label_Press {
-            position: absolute;
-            top: 140px;
-            left: 111px;
-            z-index: 1;
-            color:#0094ff;
-           
-}
-        .Label_Stock {     
-             position: absolute;
-            top: 166px;
-            left: 112px;
-            z-index: 1;
-            color: #0094ff;
-}
-        .Label_Number {
-            position: absolute;
-            top: 195px;
-            left: 112px;
-            z-index: 1;
-            color: #0094ff;
-            right: 269px;
+.Shoppingcar {
+    position: absolute;
+    top: 500px;
+    left: 850px;
+    z-index: 2;
+    border: 2px solid;
+    border-radius: 15px;
+    display: block;
+    font-weight: bold;
+    color: #FFFFFF;
+    width: 140px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    padding: 4px;
+    margin: 4px;
+    text-decoration: none;
+    font-size: large;
+    font-family: '微软雅黑','楷体';
+    transition: width 0.5s,height 0.5s;
 }
 
-        .TextBox_Amount {
-            position: absolute;
-            top: 247px;
-            left: 110px;
-            z-index: 1;
-            width: 78px;
+    .Shoppingcar:link, .Shoppingcar:visited {
+        background-color: #5cacee;
+        top: 310px;
+        left: 257px;
+    }
+
+    .Shoppingcar:hover, .Shoppingcar:active {
+        background-color: #ff6a00;
+    }
+
+
+
+
+
+
+.Panel_Recommond {
+    width: 300px;
+    height: 1400px;
+    position: absolute;
+    top: 250px;
+    left: 1050px;
+    z-index: 1;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+}
+
+.Panel_Recommond1 {
+    width: 250px;
+    height: 300px;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    z-index: 2;
+    background-color: #808080;
+    border-radius: 10px;
+}
+
+.Panel_Recommond2 {
+    width: 250px;
+    height: 300px;
+    position: absolute;
+    top: 370px;
+    left: 20px;
+    z-index: 2;
+    background-color: #808080;
+    border-radius: 10px;
+}
+
+.Panel_Recommond3 {
+    width: 250px;
+    height: 300px;
+    position: absolute;
+    top: 730px;
+    left: 20px;
+    z-index: 2;
+    background-color: #808080;
+    border-radius: 10px;
+}
+
+.Panel_Recommond4 {
+    width: 250px;
+    height: 300px;
+    position: absolute;
+    top: 1090px;
+    left: 20px;
+    z-index: 2;
+    background-color: #808080;
+    border-radius: 10px;
+}
+
+.Imagebtn_Recommond {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 3;
+}
+
+
+.Recommond_Name1 {
+    position: absolute;
+    top: 242px;
+    left: 7px;
+    z-index: 3;
+    color: #000000;
+    text-align: center;
+    font-size: medium;
+    font-family: '微软雅黑','楷体';
+}
+
+    .Recommond_Name1:link, .Recommond_Name1:visited {
+        color: #000000;
+    }
+
+    .Recommond_Name1:hover, .Recommond_Name1:active {
+        color: #5cacee;
+    }
+
+
+
+.Recommond_Name2 {
+    position: absolute;
+    top: 243px;
+    left: 3px;
+    z-index: 3;
+    color: #000000;
+    text-align: center;
+    font-size: medium;
+    font-family: '微软雅黑','楷体';
+}
+
+    .Recommond_Name2:link, .Recommond_Name2:visited {
+        color: #000000;
+    }
+
+    .Recommond_Name2:hover, .Recommond_Name2:active {
+        color: #5cacee;
+    }
+
+
+.Recommond_Name3 {
+    position: absolute;
+    top: 239px;
+    left: 4px;
+    z-index: 3;
+    color: #000000;
+    text-align: center;
+    font-size: medium;
+    font-family: '微软雅黑','楷体';
+}
+
+    .Recommond_Name3:link, .Recommond_Name3:visited {
+        color: #000000;
+    }
+
+    .Recommond_Name3:hover, .Recommond_Name3:active {
+        color: #5cacee;
+    }
+
+.Recommond_Name4 {
+    position: absolute;
+    top: 234px;
+    left: 8px;
+    z-index: 3;
+    color: #000000;
+    text-align: center;
+    font-size: medium;
+    font-family: '微软雅黑','楷体';
+}
+
+    .Recommond_Name4:link, .Recommond_Name4:visited {
+        color: #000000;
+    }
+
+    .Recommond_Name4:hover, .Recommond_Name4:active {
+        color: #5cacee;
+    }
+
+    .Panel2 {
+    position: absolute;
+    top: 800px;
+    left: 60px;
+    height: 900px;
+    width: 900px;
+    background-color: #FFFFFF;
+    z-index: 1;
+    border-radius: 10px;
+}
+
+.Panel_Evaluation {
+    width: 700px;
+    height: 800px;
+    position: absolute;
+    top: 60px;
+    left: 10px;
+    z-index: 2;
+}
+
+.Panel_Detail {
+    width: 700px;
+    height: 800px;
+    position: absolute;
+    top: 60px;
+    left: 10px;
+    z-index: 2;
+}
+
+.GridView1 {
+    width: 869px;
+    height: 800px;
+    position: absolute;
+    top: 3px;
+    left: 5px;
+    z-index: 3;
+}
+
+.Label_Username {
+    position: absolute;
+    /*top: 2px;
+    left: 4px;*/
+    z-index: 1;
+    width: 100px;
+    height: 50px;
+    font-family: "仿宋";
+    font-size: large;
+}
+
+.Label_Recommond {
+    position: absolute;
+    /*top: 100px;
+    left: 20px;*/
+    z-index: 1;
+    width: 100px;
+    height: 200px;
+    font-family: "仿宋";
+    font-size: medium;
+}
+
+
+
+.Panel1 {
+    position: absolute;
+    top: 300px;
+    left: 60px;
+    height: 400px;
+    width: 900px;
+    background-color: #FFFFFF;
+    z-index: 1;
+    border-radius: 10px;
+}
+
+
+.table {
+    width: 102%;
+    height: 285px;
+}
+
+.td5 {
+    width: 104px;
+}
+
+.td2 {
+    width: 104px;
+    height: 46px;
+}
+
+.td3 {
+    height: 46px;
+}
+
+.td1 {
+    height: 59px;
+}
+
+.td4 {
+    width: 104px;
+    height: 25px;
+}
+
+.td6 {
+    height: 25px;
+}
+
+.Label_Name {
+    position: absolute;
+    top: 2px;
+    left: 4px;
+    z-index: 1;
+    width: 206px;
+    height: 36px;
+    font-family: "黑体";
+    font-size: xx-large;
+}
+
+.Label_Price {
+    position: absolute;
+    top: 200px;
+    left: 111px;
+    color: #ff0000;
+    font-size: x-large;
+    font-family: "黑体";
+}
+
+.Label_Author {
+    position: absolute;
+    top: 113px;
+    left: 111px;
+    z-index: 1;
+    color: #0094ff;
+}
+
+.Label_Press {
+    position: absolute;
+    top: 140px;
+    left: 111px;
+    z-index: 1;
+    color: #0094ff;
+}
+
+.Label_Stock {
+    position: absolute;
+    top: 166px;
+    left: 112px;
+    z-index: 1;
+    color: #0094ff;
+}
+
+.Label_Number {
+    position: absolute;
+    top: 195px;
+    left: 112px;
+    z-index: 1;
+    color: #0094ff;
+    right: 269px;
+}
+
+.TextBox_Amount {
+    position: absolute;
+    top: 247px;
+    left: 110px;
+    z-index: 1;
+    width: 78px;
     right: 225px;
 }

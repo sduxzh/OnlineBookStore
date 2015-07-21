@@ -1,6 +1,6 @@
 ﻿body {
-    background-color:silver;
-    height:2370px;
+    background-color:white;
+    height:2350px;
 }
 .PCategory{
     position:absolute;
@@ -60,8 +60,9 @@ height:85px;
     top: 60px;
     width: 370px;
     background-color:white;
-    height:2050px;
+    height:1980px;
 }
+
 .lblBookNew{
     padding-top:8px;
     padding-left:10px;
@@ -80,15 +81,16 @@ height:85px;
     top:0px;
 }
 .imgBookNew0,.imgBookNew1,.imgBookNew2,.imgBookNew0:visited,.imgBookNew1:visited,.imgBookNew2:visited,.imgBookNew3,.imgBookNew4,.imgBookNew5,.imgBookNew3:visited,.imgBookNew4:visited,.imgBookNew5:visited,.imgBookNew6,.imgBookNew6:visited{
-    position:absolute;
-    left:0px;
-    width:200px;
-    height:250px;
+    /*position:absolute;
+    left:0px;*/
+    width:147px;
+    height:210px;
     border-width:2px;
     border-color:black;
-    margin-top:10px;
+    margin:10px;
 }
-.imgBookNew0{
+
+/*.imgBookNew0{
     top:70px;
 }
 .imgBookNew1{
@@ -108,15 +110,23 @@ height:85px;
 }
 .imgBookNew6{
     top:1750px;
-}
+}*/
 
 .imgBookNew0:hover,.imgBookNew1:hover,.imgBookNew2:hover,.imgBookNew3:hover,.imgBookNew4:hover,.imgBookNew5:hover,.imgBookNew6:hover{
-    width:210px;
-    height:280px;
+    margin-left:6.5px;
+    margin-right:6.5px;
+    margin-top:5px;
+    margin-bottom:5px;
+    width:154px;
+    height:220px;
     transition:all .5s;
     -webkit-transition:all .5s;
     -moz-transition:all .5s;
     -o-transition:all .5s;
+}
+.pnlBookNewImg{
+    width:167px;
+    height:230px;
 }
 .lkbBookName,.lkbBookName:visited,.lkbBookName0,.lkbBookName1,.lkbBookName2,.lkbBookName4,.lkbBookName4,.lkbBookName5,.lkbBookName6{
     height:28px;
@@ -126,7 +136,7 @@ height:85px;
     font-size:1em;
     color:black;
 }
-.lkbBookName0,.lkbBookName1,.lkbBookName2,.lkbBookName3,.lkbBookName4,.lkbBookName5,.lkbBookName6{
+/*.lkbBookName0,.lkbBookName1,.lkbBookName2,.lkbBookName3,.lkbBookName4,.lkbBookName5,.lkbBookName6{
     position:absolute;
     left:215px;
         
@@ -226,65 +236,85 @@ height:85px;
 }
 .cmdBookOperation61{
     top:1940px;
-}
+}*/
 
 .pnlBookRecommend{
     border-radius:5px;
     border-width:0px;
     background-color:white;
     width:956px;
-    height:1400px;
+    height:1330px;
     position:absolute;
     left:8px;
     top:710px;
 }
 .pnlBookR{
     width:235px;
-    height:430px;
+    height:432px;
+
+}
+.pnlBookRImg{
+    width:235px;
+    height:314px;
 }
 .imgBookR,.imgBookR:visited{
-    width:216px;
+    width:210px;
     height:300px;
-    margin-left:10px;
-    margin-top:20px;
-    margin-bottom:10px;
+    margin-left:12.5px;
+    margin-right:12.5px;
+    margin-top:8px;
+    margin-bottom:8px;
 }
 .imgBookR:hover{
-    width:230px;
-    height:320px;
-    margin-left:3px;
-    margin-top:10px;
-    margin-bottom:0px;
+    margin-left:4.5px;
+    margin-right:4.5px;
+    margin-top:2px;
+    margin-bottom:2px;
+    width:217px;
+    height:310px;
+    
     transition:all .5s;
     -webkit-transition:all .5s;
     -moz-transition:all .5s;
     -o-transition:all .5s;
 }
+.tdimgBookR{
+    height:315px;
+}
 .lkbBookName,.lkbBookName:visited,.lkbBookName0,.lkbBookName1,.lkbBookName2,.lkbBookName3,.lkbBookName4,.lkbBookName5,.lkbBookName6{
-    height:28px;
+    height:22px;
     text-align:left;
-    font-weight:600;
+    font-weight:500;
     font-family:'Microsoft YaHei';
-    font-size:1em;
+    font-size:0.9em;
     color:black;
+}
+.tdlkbBookName{
+    height:19px;
 }
 .lkbBookName:hover,.lkbBookName0:hover,.lkbBookName1:hover,.lkbBookName2:hover,.lkbBookName3:hover,.lkbBookName4:hover,.lkbBookName5:hover,.lkbBookName6:hover{
     font-size:1.2em;
-    font-weight:bold;
+    font-weight:600;
     color:#5cacee;
-    font-weight:bold;
+    font-weight:600;
     transition:all .4s;
     -webkit-transition:all .4s;
     -moz-transition:all .4s;
     -o-transition:all .4s;
 }
+.pnlBookNewLkbName{
+    height:20px;
+}
 .lblAuthorName,.lblAuthorName00,.lblAuthorName01,.lblAuthorName10,.lblAuthorName11,.lblAuthorName20,.lblAuthorName21,.lblAuthorName30,.lblAuthorName31,.lblAuthorName40,.lblAuthorName41,.lblAuthorName50,.lblAuthorName51,.lblAuthorName60,.lblAuthorName61{
     text-align:left;
-    height:20px;
+    height:15px;
     font-family:'Microsoft YaHei';
     font-weight:400;
     font-size:0.8em;
     color:grey;
+}
+.tdlblAuthorName{
+    height:15px;
 }
 .cmdBookOperation,.cmdBookOperation00,.cmdBookOperation01,.cmdBookOperation10,.cmdBookOperation11,.cmdBookOperation20,.cmdBookOperation21,.cmdBookOperation30,.cmdBookOperation31,.cmdBookOperation40,.cmdBookOperation41,.cmdBookOperation50,.cmdBookOperation51,.cmdBookOperation60,.cmdBookOperation61{
     border-radius:5px;
@@ -299,6 +329,9 @@ height:85px;
     background-color:#f4830e;
     icon:url('../Images/登录.png');
 }
+.tdcmdBookOperation{
+    height:25px;
+}
 .cmdBookOperation:hover,.cmdBookOperation00:hover,.cmdBookOperation01:hover,.cmdBookOperation10:hover,.cmdBookOperation11:hover,.cmdBookOperation20:hover,.cmdBookOperation21:hover,.cmdBookOperation30:hover,.cmdBookOperation31:hover,.cmdBookOperation40:hover,.cmdBookOperation41:hover,.cmdBookOperation50:hover,.cmdBookOperation51:hover,.cmdBookOperation60:hover,.cmdBookOperation61:hover{
         border-color: #f4830e;
         border-style: solid;
@@ -308,6 +341,25 @@ height:85px;
         transition: all .7s;
         -webkit-transition: all .7s;
     }
-
-
+.cmdPagerApart{
+    width:20px;
+    height:20px;
+    border-radius:100%;
+    background-color:white;
+    border-width:0px;
+}
+.cmdPagerApart:hover{
+    background-color:#ff6a00;
+}
+.lblBookPrice,.lblBookPrice0{
+    font-family:'Microsoft YaHei';
+    font-size:1em;
+    font-weight:400;
+    color:#ff6a00;
+    height:16px;
+}
+/*.lblBookPrice{
+    position:absolute;
+    right:5px;
+}*/
 

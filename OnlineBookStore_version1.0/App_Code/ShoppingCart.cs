@@ -24,14 +24,14 @@ namespace OnlineBookStore.App_Code
 
         public List<BookItem> bookItemList
         {
-            get { return bookitemList;}
+            get { return bookitemList; }
         }
 
         public ShoppingCart()
         {
-            bookitemList=new List<BookItem>();
-            recomendBooks=new List<Book>();
-            bookcategory=new List<string>();
+            bookitemList = new List<BookItem>();
+            recomendBooks = new List<Book>();
+            bookcategory = new List<string>();
         }
 
         /// <summary>
@@ -42,7 +42,7 @@ namespace OnlineBookStore.App_Code
         {
             //查找图书是否已经加入到购物车中
             int index = bookitemList.FindIndex(x => x.Book.bookID == toAddBookItem.Book.bookID);
-            if (index!=-1)//已经在购物车中
+            if (index != -1)//已经在购物车中
             {
                 bookitemList[index].AddBookToItem();
             }
@@ -73,11 +73,30 @@ namespace OnlineBookStore.App_Code
                     bookitemList[index].DeleteBookFromItem();
                 }
                 //如果购物车中图书数量小于1，那么删除该bookItem
-                else
-                {
-                    bookitemList.RemoveAt(index);
-                    bookcategory.Remove(toDeleteBookItem.Book.bookCategory);
-                }  
+                //else
+                //{
+                //    bookitemList.RemoveAt(index);
+                //    bookcategory.Remove(toDeleteBookItem.Book.bookCategory);
+                //}  
+            }
+            return bookitemList;
+        }
+
+        /// <summary>
+        /// 删除购物车中的某本书
+        /// </summary>
+        /// <param name="toDeleteBookItem"></param>
+        /// <returns></returns>
+        public List<BookItem> DeleteBookItemFromShoppingCart_(BookItem toDeleteBookItem)
+        {
+            //为了保证安全，还是检测一下要删除的图书是否在购物车中
+            int index = bookitemList.FindIndex(x => x.Book.bookID == toDeleteBookItem.Book.bookID);
+            if (index != -1)
+            {
+
+                bookitemList.RemoveAt(index);
+                bookcategory.Remove(toDeleteBookItem.Book.bookCategory);
+
             }
             return bookitemList;
         }
@@ -101,7 +120,7 @@ namespace OnlineBookStore.App_Code
                 totalcost += bookItemCost;
             }
             return totalcost;
-            
-        } 
+
+        }
     }
 }
