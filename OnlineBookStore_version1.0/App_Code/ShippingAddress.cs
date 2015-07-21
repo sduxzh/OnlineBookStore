@@ -19,7 +19,7 @@ namespace OnlineBookStore.App_Code
 
         public string Remark
         {
-            get { return address; }
+            get { return remark; }
         }
 
         /// <summary>
@@ -41,7 +41,7 @@ namespace OnlineBookStore.App_Code
         /// <param name="phonenum">收货人联系方式</param>
         public ShippingAddress(string name, string address, string postcode, string phonenum,string remark)
         {
-            address = name + "-" + address + "-" + postcode + "-" + phonenum;
+            this.address = name + "-" + address + "-" + postcode + "-" + phonenum;
             this.remark = remark;
         }
 

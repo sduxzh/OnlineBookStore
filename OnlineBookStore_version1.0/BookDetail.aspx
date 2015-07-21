@@ -2,10 +2,10 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <link rel="stylesheet" type="text/css" href="css/BOOKDETAIL.css" />
-    <link rel="stylesheet" type="text/css" href="css/Main.css" />
+     <link rel="stylesheet" type="text/css" href="css/Main.css" />
+    
 
-
-</asp:Content>
+    </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <br />
@@ -67,9 +67,9 @@
 
             </asp:Panel>
             <!--一键购买按钮-->
-            <asp:LinkButton ID="Linkbtn_Quick" runat="server" CssClass="Quick" Text="一键购买" Style="top: 320px; left: 550px"></asp:LinkButton>
+            <asp:LinkButton ID="Linkbtn_Quick" runat="server" CssClass="Quick"  Text="一键购买" style="top:320px;left:550px"></asp:LinkButton>
             <!--加入购物车按钮-->
-            <asp:LinkButton ID="Linkbtn_Shoppingcart" runat="server" CssClass="Shoppingcar" Text="加入购物车" Style="top: 320px; left: 700px"></asp:LinkButton>
+            <asp:LinkButton ID="Linkbtn_Shoppingcart" runat="server" CssClass="Shoppingcar" Text="加入购物车" style="top:320px;left:700px"></asp:LinkButton>
         </asp:Panel>
     </p>
 
@@ -82,18 +82,18 @@
         <!--详细介绍的版面-->
         <asp:Panel ID="Panel_Detail" runat="server" CssClass="Panel_Detail" Visible="False">
             <!--填写详细介绍的Textbox-->
-            <asp:TextBox ID="TextBox_Detail" runat="server" Height="800px" Width="871px"></asp:TextBox>
+            <asp:TextBox ID="TextBox_Detail" runat="server" Height="800px" Width="700px"></asp:TextBox>
         </asp:Panel>
         <!--用户评价的版面-->
-        <asp:Panel ID="Panel_Evaluation" runat="server" CssClass="Panel_Evaluation">
+        <asp:Panel ID="Panel_Evaluation" runat="server"  CssClass="Panel_Evaluation">
             <!--评价的Gridview，一页五行，有分页功能，每一行上有一个填写用户名的Lable和一个填写用户评价的Lable，内容为数据绑定-->
             <asp:GridView ID="GridView1" runat="server" BackColor="White" AutoGenerateColumns="False" ShowHeader="False" CssClass="GridView1">
                 <Columns>
                     <asp:TemplateField>
-                        <ItemTemplate>
-                            <asp:Label ID="lblUserName" runat="server" CssClass="Label_Username" Text="用户名"></asp:Label>
+                        <ItemTemplate>  
+                            <asp:Label ID="lblUserName" runat="server" CssClass="Label_Username" Text="用户名"></asp:Label>                      
                             <br />
-                            <asp:Label runat="server" ID="lblUserComment" CssClass="Label_Recommond" Text="评价内容"></asp:Label>
+                            <asp:Label runat="server"  ID="lblUserComment" CssClass="Label_Recommond" Text="评价内容"></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
@@ -105,13 +105,56 @@
 
     <!--书籍推荐版块-->
     <asp:Panel runat="server" CssClass="Panel_Recommond">
-        <asp:ListView ID="ListView2" runat="server" >
+        <asp:ListView ID="ListView2" runat="server" DataSourceID="ObjectDataSource1">
 
+            <EditItemTemplate>
+                <%--<td runat="server" style="background-color: #999999;">
+                    Price:
+                    <asp:TextBox ID="PriceTextBox" runat="server" Text='<%# Bind("Price") %>' />
+                    <br />BookId:
+                    <asp:TextBox ID="BookIdTextBox" runat="server" Text='<%# Bind("BookId") %>' />
+                    <br />BookName:
+                    <asp:TextBox ID="BookNameTextBox" runat="server" 
+                        Text='<%# Bind("BookName") %>' />
+                    <br />
+                    <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="更新" />
+                    <br />
+                    <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="取消" />
+                    <br />
+                </td>--%>
+            </EditItemTemplate>
+            <EmptyDataTemplate>
+                <table runat="server"
+                    style="background-color: #FFFFFF; border-collapse: collapse; border-color: #999999; border-style: none; border-width: 1px;">
+                    <tr>
+                        <td>未返回数据。</td>
+                    </tr>
+                </table>
+            </EmptyDataTemplate>
+            <EmptyItemTemplate>
+                <td runat="server" />
+            </EmptyItemTemplate>
             <GroupTemplate>
                 <tr id="itemPlaceholderContainer" runat="server">
                     <td id="itemPlaceholder" runat="server"></td>
                 </tr>
             </GroupTemplate>
+            <InsertItemTemplate>
+                <%--<td runat="server" style="">
+                    Price:
+                    <asp:TextBox ID="PriceTextBox" runat="server" Text='<%# Bind("Price") %>' />
+                    <br />BookId:
+                    <asp:TextBox ID="BookIdTextBox" runat="server" Text='<%# Bind("BookId") %>' />
+                    <br />BookName:
+                    <asp:TextBox ID="BookNameTextBox" runat="server" 
+                        Text='<%# Bind("BookName") %>' />
+                    <br />
+                    <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="插入" />
+                    <br />
+                    <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="清除" />
+                    <br />
+                </td>--%>
+            </InsertItemTemplate>
             <ItemTemplate>
                 <td runat="server"
                     style="background-color: #FFFFFF">
@@ -166,10 +209,24 @@
                     </tr>
                 </table>
             </LayoutTemplate>
-
+            <SelectedItemTemplate>
+                <td runat="server"
+                    style="background-color: #E2DED6; font-weight: bold; color: #333333;">Price:
+                    <asp:Label ID="PriceLabel" runat="server" Text='<%# Eval("Price") %>' />
+                    <br />
+                    BookId:
+                    <asp:Label ID="BookIdLabel" runat="server" Text='<%# Eval("BookId") %>' />
+                    <br />
+                    BookName:
+                    <asp:Label ID="BookNameLabel" runat="server" Text='<%# Eval("BookName") %>' />
+                    <br />
+                </td>
+               
+            </SelectedItemTemplate>
         </asp:ListView>
-        <%--<asp:ObjectDataSource ID="ObjectDataSource1" runat="server"></asp:ObjectDataSource>--%>
+      <%--<asp:ObjectDataSource ID="ObjectDataSource1" runat="server"></asp:ObjectDataSource>--%>
     </asp:Panel>
 
 
 </asp:Content>
+

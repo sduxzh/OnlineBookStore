@@ -27,35 +27,6 @@ public partial class UserShoppingCart : System.Web.UI.Page
 
     }
 
-
-    /// <summary>
-    /// 确认购买模块
-    /// </summary>
-    /// <param name="sender"></param>
-    /// <param name="e"></param>
-    protected void ConfirmBuy_Click(object sender, EventArgs e)
-    {
-        List<BookItem> confirmToBuyBook = new List<BookItem>();//确认购买的书籍
-        ShoppingCart shoppingCart = new ShoppingCart();
-        //读取购物车中的图书
-        if (Session["ShoppingCart"] != null)
-        {
-            shoppingCart = (ShoppingCart)Session["ShoppingCart"];
-        }
-
-        for (int i = 0; i < gridview_ShoppingCart.Rows.Count; i++)
-        {
-            var row = gridview_ShoppingCart.Rows[i];
-            var checkBox = row.FindControl("ckbSCBookChoose") as CheckBox;
-
-            if (checkBox.Checked)
-            {
-                confirmToBuyBook.Add(shoppingCart.bookItemList[i]);//从购物车中获取要购买的图书
-            }
-        }
-        Session["ConfirmToBuyBook"] = confirmToBuyBook;//存储要购买的图书，供确认订单使用
-    }
-
     /// <summary>
     /// 控件动作监听模块
     /// </summary>
@@ -135,4 +106,46 @@ public partial class UserShoppingCart : System.Web.UI.Page
         }
 
     }
+
+    /// <summary>
+    /// 确认购买模块
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    protected void ConfirmBuy_Click(object sender, EventArgs e)
+    {
+        List<BookItem> confirmToBuyBook = new List<BookItem>();//确认购买的书籍
+        ShoppingCart shoppingCart = new ShoppingCart();
+        //读取购物车中的图书
+        if (Session["ShoppingCart"] != null)
+        {
+            shoppingCart = (ShoppingCart)Session["ShoppingCart"];
+        }
+
+        for (int i = 0; i < gridview_ShoppingCart.Rows.Count; i++)
+        {
+            var row = gridview_ShoppingCart.Rows[i];
+            var checkBox = row.FindControl("ckbSCBookChoose") as CheckBox;
+
+            if (checkBox.Checked)
+            {
+                BookItem bookItem = shoppingCart.bookItemList[i];
+                shoppingCart.bookItemList.Remove(bookItem);//删除购物车中要购买的书籍
+                confirmToBuyBook.Add(bookItem);//从购物车中获取要购买的图书
+            }
+        }
+        Session["ShoppingCart"] = shoppingCart;//重新储存购物车
+
+        if (confirmToBuyBook.Count!=0)
+        {
+            Session["ConfirmToBuyBook"] = confirmToBuyBook;//存储要购买的图书，供确认订单使用
+            Response.Redirect("SubmitOrder.aspx");//跳转到提交订单页面
+        }
+        else
+        {
+            Response.Redirect("<script>alert(‘请选择需要购买的图书')</script>");
+        }
+
+    }
+
 }

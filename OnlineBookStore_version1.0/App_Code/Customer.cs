@@ -136,15 +136,19 @@ namespace OnlineBookStore.App_Code
             if (order != null)
             {
                 SqlConnection sql = DataBaseOperations.CreateConnection();
-                string cmdText = "insert into Order values('" + order.orderId + "','" + order.userName + "','" +
+                string cmdText = "insert into [Order] values('" + order.orderId + "','" + order.userName + "','" +
                              order.shippingAddress.Address + "','" + order.shippingAddress.Remark + "','" + order.Price +
                              "','" + order.isValid + "','"+order.orderDate+"')";
                 DataBaseOperations.ReviseDataToDataBase(cmdText,sql);//将订单信息插入OrderID表中
 
+                
                 foreach (var bookitem in order.bookItemList)
                 {
-                    cmdText = "insert into OrderDetail values('"+order.orderId+"','"+bookitem.Book.bookID+"','"+bookitem.bookAmount+"')";
+                    cmdText = "insert into [OrderDetail] values('"+order.orderId+"','"+bookitem.Book.bookID+"','"+bookitem.bookAmount+"')";
                     DataBaseOperations.ReviseDataToDataBase(cmdText, sql);//将订单信息插入OrderDetail表中
+                    int bookRating = bookitem.Book.Rating + 1;
+                    cmdText = "update [Book] set Rating='" + bookRating + "'where BookID='" + bookitem.Book.bookID + "'";
+                    DataBaseOperations.ReviseDataToDataBase(cmdText, sql);//更新图书销量
                 }
                 sql.Close();
                 return 0;

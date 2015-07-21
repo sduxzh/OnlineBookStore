@@ -34,6 +34,8 @@ namespace OnlineBookStore.App_Code
             bookcategory = new List<string>();
         }
 
+
+
         /// <summary>
         /// 将图书添加到购物车中
         /// </summary>
