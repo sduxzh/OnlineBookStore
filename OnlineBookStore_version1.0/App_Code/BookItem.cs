@@ -11,6 +11,10 @@
             get { return bookamount; }
         }
 
+        public decimal totalPrice
+        {
+            get { return totalprice;}
+        }
         public Book Book
         {
             get { return book;}
@@ -20,12 +24,14 @@
         {
             this.book = abook;
             bookamount++;
+            totalprice = ComputeBookItemCost();
         }
 
         public BookItem(Book abook, int bookAmount)
         {
             this.book = abook;
             bookamount = bookAmount;
+            totalprice = ComputeBookItemCost();
         }
 
         /// <summary>
@@ -35,6 +41,7 @@
         public void AddBookToItem()
         {
                 bookamount++;
+                totalprice = ComputeBookItemCost();
         }
 
         /// <summary>
@@ -46,6 +53,7 @@
             if (bookamount > 1)
             {
                 bookamount--;
+                totalprice = ComputeBookItemCost();
             }
            
         }

@@ -11,17 +11,17 @@ public partial class Main : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+
         if (!IsPostBack)
         {
             List<Book> newBook = OnlineBookStore.App_Code.User.NewBook();
-        List<Book> recommendBooks = OnlineBookStore.App_Code.User.NewBook();
-        Session["NewBooks"] = newBook;
-        Session["RecommendBooks"] = recommendBooks;
-        ListView_NewBook.DataSource = newBook;
-        ListView_Recommend.DataSource = recommendBooks;
-        ListView_NewBook.DataBind();
-        ListView_Recommend.DataBind();
+            List<Book> recommendBooks = OnlineBookStore.App_Code.User.NewBook();
+            Session["NewBooks"] = newBook;
+            Session["RecommendBooks"] = recommendBooks;
+            ListView_NewBook.DataSource = newBook;
+            ListView_Recommend.DataSource = recommendBooks;
+            ListView_NewBook.DataBind();
+            ListView_Recommend.DataBind();
         }
 
     }
@@ -37,6 +37,15 @@ public partial class Main : System.Web.UI.Page
         //待完善
         if (e.CommandName == "BuyNow")
         {
+
+        }
+
+        if (e.CommandName == "BookDetail")
+        {
+            string bookID = e.CommandArgument.ToString();//获取书号
+            Book book = OnlineBookStore.App_Code.User.QureyBookFromDbByBookID(bookID);//查询该图书
+            Session["BookDetail"] = book;//存储该图书
+            Response.Redirect("BookDetail.aspx");//跳转到图书详情页
 
         }
 
@@ -59,7 +68,7 @@ public partial class Main : System.Web.UI.Page
                     bookList = (List<Book>)Session["NewBooks"]; //推荐书籍List
                 }
             }
-           
+
             Book selectedBook = bookList.Find(x => x.bookID == e.CommandArgument.ToString());//查找用户选择的书籍
             if (Session["User"] != null)
             {
@@ -89,6 +98,8 @@ public partial class Main : System.Web.UI.Page
                 Response.Write("<script>alert('登陆失效，请重新登陆!')</script>");
             }
         }
+
+
     }
 
     /// <summary>

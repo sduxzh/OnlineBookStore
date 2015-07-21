@@ -199,7 +199,7 @@
                                  &nbsp;<asp:Label ID="lblBookPrice0" runat="server" CssClass="lblBookPrice0" Text="¥"></asp:Label>&nbsp;<asp:Label ID="lblBookPriceIn0" runat="server" CssClass="lblBookPrice0" Text=""></asp:Label>    
                                 <br />
                                 <%--“作者”及作者姓名展示，第二个label需绑定数据--%>
-                    &nbsp;<asp:Label ID="lblBookNewName" runat="server" Text='<%# Eval("bookName") %>'  CssClass="lblAuthorName00"></asp:Label>
+                    &nbsp;<asp:Label ID="lblBookNewName" runat="server"  Text='<%# Eval("bookName") %>'  CssClass="lblAuthorName00"></asp:Label>
                                 &nbsp;<asp:Label ID="lblNewAuthorName" runat="server" Text='<%# Eval("bookAuthor") %>' CssClass="lblAuthorName01"></asp:Label>
                                 <br />
                                 <br />
@@ -263,7 +263,7 @@
                                     <br />
  </asp:Panel>
                                      <asp:Panel ID="pnlBookRLkbName" runat="server" CssClass="tdlkbBookName">
-                                    &nbsp;<asp:LinkButton ID="lkbBookName" Text='<%# Eval("bookName") %>' runat="server" CssClass="lkbBookName"></asp:LinkButton>
+                                    &nbsp;<asp:LinkButton ID="lkbBookName" CommandName="BookDetail" CommandArgument='<%# Eval("bookID") %>' Text='<%# Eval("bookName") %>' runat="server" CssClass="lkbBookName"></asp:LinkButton>
                                     <br />
                                          </asp:Panel>
                                      &nbsp; &nbsp;<asp:Label ID="lblBookPrice" runat="server" CssClass="lblBookPrice" Text="¥"></asp:Label>&nbsp;<asp:Label ID="lblBookPriceIn"  runat="server" CssClass="lblBookPrice" Text=""></asp:Label><br/>

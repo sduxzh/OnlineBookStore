@@ -121,7 +121,6 @@ namespace OnlineBookStore.App_Code
         }
 
         /// <summary>
-        /// 未调试
         /// 提交订单信息
         /// </summary>
         /// <param name="shippingAddress">收货地址</param>
@@ -177,7 +176,7 @@ namespace OnlineBookStore.App_Code
 
             //根据当前用户名查询订单
             string cmdText =
-                "select a.OrderID,a.UserName,a.Address,a.Remark,a.Price,a.isValid,a.OrderDate,b.BookID,b.Amount,c.BookName,c.BookAuthor,c.BookPrice,c.BookPress,c.BookDetail,c.BookCategory,c.BookIamgeURL,c.ShelveDate,c.Inventory,c.Rating from [Order] a inner join [OrderDetail] b on a.OrderID=b.OrderID inner join [Book] c on b.BookID=c.BookID where a.UserName='"+name+"' order by a.OrderID desc";
+                "select a.OrderID,a.UserName,a.Address,a.Remark,a.Price,a.isValid,a.OrderDate,b.BookID,b.Amount,c.BookName,c.BookAuthor,c.BookPrice,c.BookPress,c.BookDetail,c.BookCategory,c.BookImageURL,c.ShelveDate,c.Inventory,c.Rating from [Order] a inner join [OrderDetail] b on a.OrderID=b.OrderID inner join [Book] c on b.BookID=c.BookID where a.UserName='"+name+"' order by a.OrderID desc";
             
             DataSet dataSet = DataBaseOperations.GetDataSet(cmdText, sql);
             if (dataSet != null)

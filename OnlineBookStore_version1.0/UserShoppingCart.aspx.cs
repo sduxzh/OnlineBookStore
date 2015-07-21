@@ -130,9 +130,13 @@ public partial class UserShoppingCart : System.Web.UI.Page
             if (checkBox.Checked)
             {
                 BookItem bookItem = shoppingCart.bookItemList[i];
-                shoppingCart.bookItemList.Remove(bookItem);//删除购物车中要购买的书籍
                 confirmToBuyBook.Add(bookItem);//从购物车中获取要购买的图书
             }
+        }
+        //删除购物车中要购买的书籍
+        foreach (var book in confirmToBuyBook)
+        {
+            shoppingCart.bookItemList.Remove(book);
         }
         Session["ShoppingCart"] = shoppingCart;//重新储存购物车
 
@@ -143,7 +147,7 @@ public partial class UserShoppingCart : System.Web.UI.Page
         }
         else
         {
-            Response.Redirect("<script>alert(‘请选择需要购买的图书')</script>");
+            Response.Write("<script>alert(‘请选择需要购买的图书')</script>");
         }
 
     }

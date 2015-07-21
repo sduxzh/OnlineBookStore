@@ -128,7 +128,8 @@
                             <asp:Panel ID="pnlOrderOperation" runat="server" Width="1264px" Height="20px" background-color="blue" Style="position: relative; top: 0px; left: 0px">
                                 <asp:CheckBox ID="ckbUserOrder" Text="" runat="server" />
                                 订单号：
-                      <asp:Label ID="lblOrderNum" Text="" runat="server" Width="500px"></asp:Label>
+                                <%--订单号，绑定数据--%>
+                      <asp:Label ID="lblOrderNum" Text='<%# Eval("orderId") %>' runat="server" Width="500px"></asp:Label>
                             </asp:Panel>
                             <br />
                             <asp:GridView ID="grvOrderDetails" runat="server" CssClass="grvOrderDetails" ShowHeader="False" RowStyle-Height="200px" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="grvOrderDetails_OnSelectedIndexChanged">
@@ -136,13 +137,15 @@
                                 <Columns>
                                     <asp:TemplateField>
                                         <ItemTemplate>
-                                            <asp:ImageButton ID="icmdBookPic" runat="server" CssClass="icmdSCBookPic" />
+                                            <%--图书图片，绑定数据--%>
+                                            <asp:ImageButton ID="icmdBookPic" ImageUrl='<%# Eval("Book.bookImageURL") %>' runat="server" CssClass="icmdSCBookPic" />
                                         </ItemTemplate>
                                         <ItemStyle Width="145px" />
                                     </asp:TemplateField>
                                     <asp:TemplateField>
                                         <ItemTemplate>
-                                            <asp:LinkButton Text="" ID="lcmdBookName" runat="server" CssClass="lcmdSCBookName" Font-Underline="false" Width="100px"></asp:LinkButton>
+                                            <%--图书名字，绑定数据--%>
+                                            <asp:LinkButton Text='<%# Eval("Book.bookName") %>' ID="lcmdBookName" runat="server" CssClass="lcmdSCBookName" Font-Underline="false" Width="100px"></asp:LinkButton>
                                             <br />
                                             <br />
                                             <br />
@@ -151,24 +154,23 @@
                                     <asp:TemplateField>
                                         <ItemTemplate>
                                             <asp:Label ID="lblBookPriceM" runat="server" Text="单价：" CssClass="lblSCBookPriceM"></asp:Label>
-                                            <asp:Label ID="lblBookPrice" Text="" runat="server" CssClass="lblSCBookPrice"></asp:Label>&nbsp;元
+                                            <%--图书单价，绑定数据--%>
+                                            <asp:Label ID="lblBookPrice" Text='<%# Eval("Book.bookPrice") %>' runat="server" CssClass="lblSCBookPrice"></asp:Label>&nbsp;元
                      <br />
                                             <br />
                                             <asp:Panel ID="pnlBookNum" runat="server" CssClass="pnlSCBookNum">
-                                                <asp:Button ID="cmdBookNumReduce" CssClass="cmdSCBookNumReduce" Text="-" runat="server" Width="20px" Height="27px" />
-                                                <asp:Label ID="lblBookNum" CssClass="lblSCBookNum" runat="server" Text="" Height="27px" Width="25px"></asp:Label>
-                                                <asp:Button ID="cmdBookNumAdd" CssClass="cmdSCBookNumAdd" Text="+" runat="server" Width="20px" Height="27px" />
+                                                <%--图书数量，绑定数据--%>
+                                                <asp:Label ID="lblBookNum" CssClass="lblSCBookNum" runat="server" Text='<%# Eval("bookAmount") %>' Height="27px" Width="25px"></asp:Label>
                                             </asp:Panel>
                                             <br />
                                             <br />
-
-
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField>
                                         <ItemTemplate>
                                             <asp:Label ID="lblBookPriceSum" runat="server" Text="总计：" CssClass="lblSCBookPriceM"></asp:Label>
-                                            <asp:Label ID="lblBookSum" Text="" runat="server" CssClass="lblSCBookPrice"></asp:Label>&nbsp;元
+                                            <%--图书总价，绑定数据--%>
+                                            <asp:Label ID="lblBookSum" Text='<%# Eval("totalPrice") %>' runat="server" CssClass="lblSCBookPrice"></asp:Label>&nbsp;元
                                         </ItemTemplate>
                                         <ItemStyle HorizontalAlign="Center" />
                                     </asp:TemplateField>
