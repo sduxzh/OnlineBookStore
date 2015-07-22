@@ -53,8 +53,9 @@ public partial class Master : System.Web.UI.MasterPage
             }
             else
             {
-                Session["User"] = user;//存储user对象
-                Response.Redirect("");//跳转到管理员界面
+                Manager manager=new Manager(user.Name);
+                Session["User"] = manager;//存储user对象
+                Response.Redirect("ManageSystem.aspx");//跳转到管理员界面
             }
 
         }

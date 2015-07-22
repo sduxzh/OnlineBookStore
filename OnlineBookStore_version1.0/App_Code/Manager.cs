@@ -97,18 +97,18 @@ namespace OnlineBookStore.App_Code
         /// <param name="customer">顾客</param>
         /// <param name="state">1：冻结 </param>
         /// <returns></returns>
-        public static int RestrictOrPermitCustomerLogin(Customer customer,int state)
+        public  int RestrictOrPermitCustomerLogin(string userName,int state)
         {
             string cmdText1,cmdText2;
             if (state == 1)
             {
-                cmdText1 = "update Users set LegalityState=1 where Name='" + customer.Name + "'";
-                cmdText2 = "update Customer set LegalityState=1 where Name='" + customer.Name + "'";
+                cmdText1 = "update Users set LegalityState=1 where Name='" + userName + "'";
+                cmdText2 = "update Customer set LegalityState=1 where Name='" + userName + "'";
             }
             else
             {
-                cmdText1 = "update Users set LegalityState=0 where Name='" + customer.Name + "'";
-                cmdText2 = "update Customer set LegalityState=0 where Name='" + customer.Name + "'";
+                cmdText1 = "update Users set LegalityState=0 where Name='" + userName + "'";
+                cmdText2 = "update Customer set LegalityState=0 where Name='" + userName + "'";
             }
             
             SqlConnection sql = DataBaseOperations.CreateConnection();
@@ -201,12 +201,40 @@ namespace OnlineBookStore.App_Code
 
         }
 
+        /// <summary>
+        /// 查询用户信息
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <returns></returns>
+        public static List<Customer> QueryUserInformation(string userName)
+        {
+            
+            List<Customer> qureyUsers=new List<Customer>();
+            SqlConnection sql = DataBaseOperations.CreateConnection();//数据库连接符
+            string cmdText = null;
+            if (userName =="null")
+            {
+                cmdText = "select * from [Customer]";//查询所有用户
+            }
+            else
+            {
+                cmdText = "select * from [Customer] where Name='"+userName+"'";//查询某个用户
+            }
 
+            DataSet data = DataBaseOperations.GetDataSet(cmdText, sql);
+            for (int i = 0; i < data.Tables[0].Rows.Count; i++)
+            {
+                Customer user = new Customer(data.Tables[0].Rows[i]["Name"].ToString(),
+                    data.Tables[0].Rows[i]["Password"].ToString(), Convert.ToInt32(data.Tables[0].Rows[i]["CustomerSex"]),
+                    data.Tables[0].Rows[i]["SecurityQuestion"].ToString(),
+                    data.Tables[0].Rows[i]["SecurityQuestionAnswer"].ToString(), Convert.ToInt32(data.Tables[0].Rows[i]["LegalityState"]));
 
+                qureyUsers.Add(user);
 
+            }
+            return qureyUsers;
 
-
-
+        } 
         /// <summary>
         /// 获取系统当前时间
         /// </summary>

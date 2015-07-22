@@ -49,6 +49,10 @@ namespace OnlineBookStore.App_Code
         }
 #endregion
 
+        public Customer()
+        {
+            
+        }
         public Customer(string name):base(name,null)
         {
             shoppingcart = new ShoppingCart();
@@ -75,6 +79,28 @@ namespace OnlineBookStore.App_Code
 
         }
 
+        /// <summary>
+        /// 带参数构造方法
+        /// 用于数据库返回时构造
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="password"></param>
+        /// <param name="customersex"></param>
+        /// <param name="securityquestion"></param>
+        /// <param name="securityquestionanswer"></param>
+        /// <param name="legalitystate"></param>
+        public Customer(string name, string password, int customersex, string securityquestion,
+           string securityquestionanswer, int legalitystate)
+            : base(name, password)
+        {
+
+            this.customersex = customersex;
+            this.securityquestion = securityquestion;
+            this.securityquestionanswer = securityquestionanswer;
+            this.legalitystate = legalitystate;
+            this.Powers = Power.Customer;
+
+        } 
         /// <summary>
         /// 用户注册
         /// 0：成功注册

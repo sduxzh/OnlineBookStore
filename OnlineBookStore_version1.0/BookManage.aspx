@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/ManagerManage.Master" AutoEventWireup="true" CodeFile="BookManage.aspx.cs" Inherits="BookManage" %>
 
-<%--<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>--%>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" type="text/css" href="CSS/BookManage_zero.css" />
     <style type="text/css">
