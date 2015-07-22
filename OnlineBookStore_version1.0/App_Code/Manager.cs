@@ -21,8 +21,8 @@ namespace OnlineBookStore.App_Code
         #region
         public string trueName
         {
-            set{truename = value;}
-            get{ return truename;}
+            set { truename = value; }
+            get { return truename; }
         }
 
         public Ranks Rank
@@ -30,13 +30,39 @@ namespace OnlineBookStore.App_Code
             set { rank = value; }
             get { return rank; }
         }
-#endregion
+        #endregion
 
-        public Manager(string name) : base(name, null)
+        public Manager(string name)
+            : base(name, null)
         {
-            
+
         }
 
+        /// <summary>
+        /// 更新图书信息
+        /// </summary>
+        /// <param name="prbook"></param>
+        /// <param name="curbook"></param>
+        /// <returns></returns>
+        public int UpdateBook( Book curbook)
+        {
+            SqlConnection sql = DataBaseOperations.CreateConnection();
+            string cmdText = "update Book set BookName='" + curbook.bookName +
+                             "',BookAuthor='" + curbook.bookAuthor + "',BookPrice='" + curbook.bookPrice +
+                             "',BookPress='" + curbook.bookPress + "',BookDetail='" + curbook.bookDetail +
+                             "',BookCategory='" + curbook.bookCategory + "',BookImageURL='" + curbook.bookImageURL +
+                             "',Rating='" + curbook.Rating + "',ShelveDate='" + GetCurrentTime() + "',Inventory='" +
+                             curbook.Inventory + "' where BookID='"+curbook.bookID+"'" ;
+            int state = DataBaseOperations.ReviseDataToDataBase(cmdText, sql);
+            sql.Close();
+            if (state == 1)
+            {
+                return 0;
+            }
+
+            return 1;
+
+        }
         /// <summary>
         /// 将书籍添加到数据库
         /// 成功返回0
@@ -51,7 +77,7 @@ namespace OnlineBookStore.App_Code
                              "','" + book.bookPrice + "','" + book.bookPress + "','" + book.bookDetail + "','" +
                              book.bookCategory + "','" + book.bookImageURL + "','0','" + GetCurrentTime() + "','" +
                              book.Inventory + "')";
-            int state=DataBaseOperations.ReviseDataToDataBase(cmdText,sql);
+            int state = DataBaseOperations.ReviseDataToDataBase(cmdText, sql);
             sql.Close();
             if (state == 1)
             {
@@ -88,7 +114,7 @@ namespace OnlineBookStore.App_Code
         /// <returns></returns>
         public int ReviseBookInformation(Book book)
         {
-           return AddBookToDB(book);
+            return AddBookToDB(book);
         }
 
         /// <summary>
@@ -97,9 +123,9 @@ namespace OnlineBookStore.App_Code
         /// <param name="customer">顾客</param>
         /// <param name="state">1：冻结 </param>
         /// <returns></returns>
-        public  int RestrictOrPermitCustomerLogin(string userName,int state)
+        public int RestrictOrPermitCustomerLogin(string userName, int state)
         {
-            string cmdText1,cmdText2;
+            string cmdText1, cmdText2;
             if (state == 1)
             {
                 cmdText1 = "update Users set LegalityState=1 where Name='" + userName + "'";
@@ -110,7 +136,7 @@ namespace OnlineBookStore.App_Code
                 cmdText1 = "update Users set LegalityState=0 where Name='" + userName + "'";
                 cmdText2 = "update Customer set LegalityState=0 where Name='" + userName + "'";
             }
-            
+
             SqlConnection sql = DataBaseOperations.CreateConnection();
             int state1 = DataBaseOperations.ReviseDataToDataBase(cmdText1, sql);
             int state2 = DataBaseOperations.ReviseDataToDataBase(cmdText2, sql);
@@ -141,13 +167,13 @@ namespace OnlineBookStore.App_Code
                 cmdText =
                     "select a.OrderID,a.UserName,a.Address,a.Remark,a.Price,a.isValid,a.OrderDate,b.BookID,b.Amount,c.BookName,c.BookAuthor,c.BookPrice,c.BookPress,c.BookDetail,c.BookCategory,c.BookImageURL,c.ShelveDate,c.Inventory,c.Rating from [Order] a inner join [OrderDetail] b on a.OrderID=b.OrderID inner join [Book] c on b.BookID=c.BookID order by a.OrderID desc";
             }
-            
+
             else
             {
                 //根据订单号查询订单
-                cmdText = "select a.OrderID,a.UserName,a.Address,a.Remark,a.Price,a.isValid,a.OrderDate,b.BookID,b.Amount,c.BookName,c.BookAuthor,c.BookPrice,c.BookPress,c.BookDetail,c.BookCategory,c.BookImageURL,c.ShelveDate,c.Inventory,c.Rating from [Order] a inner join [OrderDetail] b on a.OrderID=b.OrderID inner join [Book] c on b.BookID=c.BookID where a.OrderID='"+orderId+"' order by a.OrderID desc";
+                cmdText = "select a.OrderID,a.UserName,a.Address,a.Remark,a.Price,a.isValid,a.OrderDate,b.BookID,b.Amount,c.BookName,c.BookAuthor,c.BookPrice,c.BookPress,c.BookDetail,c.BookCategory,c.BookImageURL,c.ShelveDate,c.Inventory,c.Rating from [Order] a inner join [OrderDetail] b on a.OrderID=b.OrderID inner join [Book] c on b.BookID=c.BookID where a.OrderID='" + orderId + "' order by a.OrderID desc";
             }
-           
+
 
             DataSet dataSet = DataBaseOperations.GetDataSet(cmdText, sql);
             if (dataSet != null)
@@ -208,17 +234,17 @@ namespace OnlineBookStore.App_Code
         /// <returns></returns>
         public static List<Customer> QueryUserInformation(string userName)
         {
-            
-            List<Customer> qureyUsers=new List<Customer>();
+
+            List<Customer> qureyUsers = new List<Customer>();
             SqlConnection sql = DataBaseOperations.CreateConnection();//数据库连接符
             string cmdText = null;
-            if (userName =="null")
+            if (userName == "null")
             {
                 cmdText = "select * from [Customer]";//查询所有用户
             }
             else
             {
-                cmdText = "select * from [Customer] where Name='"+userName+"'";//查询某个用户
+                cmdText = "select * from [Customer] where Name='" + userName + "'";//查询某个用户
             }
 
             DataSet data = DataBaseOperations.GetDataSet(cmdText, sql);
@@ -234,7 +260,7 @@ namespace OnlineBookStore.App_Code
             }
             return qureyUsers;
 
-        } 
+        }
         /// <summary>
         /// 获取系统当前时间
         /// </summary>
@@ -245,7 +271,7 @@ namespace OnlineBookStore.App_Code
             string year = time.Year.ToString();
             string month = time.Month.ToString();
             string day = time.Day.ToString();
-            string currentTime = year + "-" +month +  "-" + day;
+            string currentTime = year + "-" + month + "-" + day;
             return currentTime;
         }
 

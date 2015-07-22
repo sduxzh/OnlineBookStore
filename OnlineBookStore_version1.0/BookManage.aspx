@@ -74,7 +74,7 @@
             <asp:TextBox ID="TextBConPress" runat="server" CssClass="TBP"></asp:TextBox>
 
 
-            <asp:LinkButton ID="BConSearchGo" runat="server" OnClick="BConSearch_Click" CssClass="BHidden">搜索</asp:LinkButton>
+            <asp:LinkButton ID="BConSearchGo" runat="server" OnClick="BConSearchGo_OnClick" CssClass="BHidden">搜索</asp:LinkButton>
         </asp:Panel>
     </asp:Panel>
 
@@ -108,7 +108,7 @@
         <asp:Label ID="lblCateNow" runat="server" Text="[分类]"></asp:Label>&gt;
         <!--显示当前位置：具体搜索条件-->
         <asp:Label ID="lblConNow" runat="server" Text="[具体条件]"></asp:Label><br />
-        <asp:GridView ID="GridVShowBook" runat="server" AutoGenerateColumns="False" CssClass="GV_BookShow" ShowHeader="False" PageSize="4" CellPadding="4" CellSpacing="10">
+        <asp:GridView ID="GridVShowBook" runat="server" OnRowCommand="GridVShowBook_OnRowCommand" AutoGenerateColumns="False" CssClass="GV_BookShow" ShowHeader="False" PageSize="4" CellPadding="4" CellSpacing="10">
             <Columns>
                 <asp:TemplateField>
                     <ItemTemplate>
@@ -116,20 +116,20 @@
                             <tr>
                                 <td rowspan="5" class="TableCover">
                                     <!--展示：书籍封面-->
-                                    <asp:Image ID="ImgCover" runat="server" CssClass="TCoverImg" /></td>
+                                    <asp:Image ID="ImgCover" ImageUrl='<%# Eval("bookImageURL") %>' runat="server" CssClass="TCoverImg" /></td>
                                 <td class="TableTd1">
                                     <asp:Label ID="BookName" runat="server" Text="书名："></asp:Label></td>
                                 <td class="TableTd2">
                                     <!--展示：书名，点击链接具体书籍介绍页面-->
-                                    <asp:LinkButton ID="lbBookName" runat="server" CssClass="BookLink">[BookName]</asp:LinkButton></td>
+                                    <asp:LinkButton ID="lbBookName" Text='<%# Eval("bookName") %>' runat="server" CssClass="BookLink">[BookName]</asp:LinkButton></td>
                                 <td class="TableTd1"></td>
                                 <td class="TableTd3"></td>
                                 <td rowspan="5" class="TableTd4">
                                     <!--修改button-->
-                                    <asp:LinkButton ID="lbAlter" runat="server" CssClass="TableButton" OnClick="ImgBAlter_Click">修改</asp:LinkButton>
+                                    <asp:LinkButton ID="lbAlter" CommandName="Alter" CommandArgument='<%# Eval("bookId") %>' runat="server" CssClass="TableButton" >修改</asp:LinkButton>
                                     <br />
                                     <!--删除button-->
-                                    <asp:LinkButton ID="lbDelete" runat="server" CssClass="TableButton" OnClick="ImgBDelete_Click">删除</asp:LinkButton>
+                                    <asp:LinkButton ID="lbDelete" CommandName="Delete" CommandArgument='<%# Eval("bookId") %>' runat="server" CssClass="TableButton" >删除</asp:LinkButton>
                                 </td>
                             </tr>
                             <tr>
@@ -137,12 +137,12 @@
                                     <asp:Label ID="BookID" runat="server" Text="书号："></asp:Label></td>
                                 <td>
                                     <!--展示：书号-->
-                                    <asp:Label ID="lblBookID" runat="server" Text="[BookID]"></asp:Label></td>
+                                    <asp:Label ID="lblBookID" Text='<%# Eval("bookId") %>' runat="server" ></asp:Label></td>
                                 <td>
                                     <asp:Label ID="ShelveDate" runat="server" Text="上架时间"></asp:Label></td>
                                 <td>
                                     <!--展示：上架时间-->
-                                    <asp:Label ID="lblShelveDate" runat="server" Text="[Rating]"></asp:Label></td>
+                                    <asp:Label ID="lblShelveDate" Text='<%# Eval("shelveDate") %>' runat="server" ></asp:Label></td>
 
                             </tr>
                             <tr>
@@ -150,24 +150,24 @@
                                     <asp:Label ID="Author" runat="server" Text="作者："></asp:Label></td>
                                 <td>
                                     <!--展示：作者-->
-                                    <asp:Label ID="lblAuthor" runat="server" Text="[Author]"></asp:Label></td>
+                                    <asp:Label ID="lblAuthor" Text='<%# Eval("bookAuthor") %>' runat="server" ></asp:Label></td>
                                 <td>
                                     <asp:Label ID="Press" runat="server" Text="出版社："></asp:Label></td>
                                 <td>
                                     <!--展示：出版社-->
-                                    <asp:Label ID="lblPress" runat="server" Text="[Press]"></asp:Label></td>
+                                    <asp:Label ID="lblPress" Text='<%# Eval("bookPress") %>' runat="server" ></asp:Label></td>
                             </tr>
                             <tr>
                                 <td>
                                     <asp:Label ID="Price" runat="server" Text="价格："></asp:Label></td>
                                 <td>
                                     <!--展示：价格-->
-                                    <asp:Label ID="lblPrice" runat="server" Text="[Price]"></asp:Label></td>
+                                    <asp:Label ID="lblPrice" Text='<%# Eval("bookPrice") %>' runat="server"></asp:Label></td>
                                 <td>
                                     <asp:Label ID="Category" runat="server" Text="分类："></asp:Label></td>
                                 <td>
                                     <!--展示：分类-->
-                                    <asp:Label ID="lblCategory" runat="server" Text="[Category]"></asp:Label></td>
+                                    <asp:Label ID="lblCategory" Text='<%# Eval("bookCategory") %>' runat="server"></asp:Label></td>
 
                             </tr>
                             <tr>
@@ -175,12 +175,12 @@
                                     <asp:Label ID="Inventory" runat="server" Text="库存量"></asp:Label></td>
                                 <td>
                                     <!--展示：库存量-->
-                                    <asp:Label ID="lblInventory" runat="server" Text="[Inventory]"></asp:Label></td>
+                                    <asp:Label ID="lblInventory" Text='<%# Eval("Inventory") %>' runat="server" ></asp:Label></td>
                                 <td>
                                     <asp:Label ID="Rating" runat="server" Text="销量"></asp:Label></td>
                                 <td>
                                     <!--展示：销量-->
-                                    <asp:Label ID="lblRating" runat="server" Text="[Rating]"></asp:Label></td>
+                                    <asp:Label ID="lblRating" Text='<%# Eval("Rating") %>' runat="server"></asp:Label></td>
 
                             </tr>
 

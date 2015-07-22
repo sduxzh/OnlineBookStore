@@ -29,17 +29,22 @@ public partial class OrderManage : System.Web.UI.Page
             grvOrderInfo.DataBind();//绑定用户订单信息
 
         }
-
-
     }
 
 
 
-    //所有订单button
+    /// <summary>
+    /// 查询所有订单
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     protected void cmdAllOrder_Click(object sender, EventArgs e)
     {
-
         P_OrderDetail.Visible = false;
+        orderlList = manager.QueryOrderInformation("null");//获取到所有用户订单信息
+        Session["OrderList"] = orderlList;//存储订单信息，供选择时查看订单详情
+        grvOrderInfo.DataSource = orderlList;//重新绑定
+        grvOrderInfo.DataBind();
     }
 
     /// <summary>

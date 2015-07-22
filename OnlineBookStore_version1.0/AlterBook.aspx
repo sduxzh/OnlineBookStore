@@ -55,12 +55,12 @@
                 <td>
                     <!--显示：分类，可修改-->
                     <asp:DropDownList ID="DDLCategory" runat="server" CssClass="TableTb">
-                        <asp:ListItem>教育</asp:ListItem>
-                        <asp:ListItem>文艺</asp:ListItem>
-                        <asp:ListItem>科技</asp:ListItem>
-                        <asp:ListItem>生活</asp:ListItem>
-                        <asp:ListItem>人文社科</asp:ListItem>
-                        <asp:ListItem>少儿读物</asp:ListItem>
+                        <asp:ListItem Value="Education">教育</asp:ListItem>
+                        <asp:ListItem Value="Literature">文艺</asp:ListItem>
+                        <asp:ListItem Value="Science">科技</asp:ListItem>
+                        <asp:ListItem Value="Life">生活</asp:ListItem>
+                        <asp:ListItem Value="Humanity">人文社科</asp:ListItem>
+                        <asp:ListItem Value="Children">少儿读物</asp:ListItem>
                     </asp:DropDownList></td>
             </tr>
             <tr>
@@ -92,8 +92,8 @@
         <!--显示：详细内容，可修改-->
         <asp:TextBox ID="TextBDetail" runat="server" CssClass="Detail" TextMode="MultiLine"></asp:TextBox>
         <!--取消与保存button-->
-        <asp:LinkButton ID="lbCancel" runat="server" CssClass="ButtonN" OnClick="Cancel_Click">取消</asp:LinkButton>
-        <asp:LinkButton ID="lbSave" runat="server" CssClass="ButtonY" OnClick="Save_Click">确定</asp:LinkButton>
+        <asp:LinkButton ID="lbCancel" runat="server" CssClass="ButtonN" OnClick="lbCancel_OnClick">取消</asp:LinkButton>
+        <asp:LinkButton ID="lbSave" runat="server" CssClass="ButtonY" OnClick="lbSave_OnClick">确定</asp:LinkButton>
     </asp:Panel>
     <p>
     </p>

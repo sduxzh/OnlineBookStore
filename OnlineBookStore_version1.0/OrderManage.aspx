@@ -30,7 +30,7 @@
                 <HeaderStyle CssClass="GV_Title2" />
                 <ItemStyle CssClass="GV_Item2" />
                 </asp:BoundField>
-                <asp:BoundField HeaderText="下单时间" SortExpression="下单时间" HeaderStyle-CssClass="GV_Title3" ItemStyle-CssClass="GV_Item3" DataField="orderDate">
+                <asp:BoundField HeaderText="下单" SortExpression="下单时间" HeaderStyle-CssClass="GV_Title3" ItemStyle-CssClass="GV_Item3" DataField="orderDate">
                 <HeaderStyle CssClass="GV_Title3" />
                 <ItemStyle CssClass="GV_Item3" />
                 </asp:BoundField>
