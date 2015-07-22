@@ -9,21 +9,36 @@ using OnlineBookStore.App_Code;
 public partial class UserManage : System.Web.UI.Page
 {
     private Manager manager;
+    private List<Customer> customers;
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Session["User"]!= null)
         {
             manager = (Manager) Session["User"];
         }
+        customers = Manager.QueryUserInformation("null");
+
+        if (!IsPostBack)
+        {
+            grvAllUser.DataSource = customers;
+            grvAllUser.DataBind();
+        }
 
     }
 
 
-    //搜索用户
+    /// <summary>
+    /// 搜索某个用户
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+
     protected void icmdOrderSearch_Click(object sender, EventArgs e)
     {
         string userName = txtUserSearch.Text;
-        Manager.QueryUserInformation(userName);
+        customers= Manager.QueryUserInformation(userName);
+        grvAllUser.DataSource = customers;
+        grvAllUser.DataBind();
     }
 
 

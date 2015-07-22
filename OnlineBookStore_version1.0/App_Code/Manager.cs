@@ -135,17 +135,17 @@ namespace OnlineBookStore.App_Code
             List<Order> orderList = new List<Order>();//订单列表
             Order order;//订单
 
-            if (orderId == null)
+            if (orderId == "null")
             {
-                //根据当前用户名查询订单
+                //查询所有订单
                 cmdText =
-                    "select a.OrderID,a.UserName,a.Address,a.Remark,a.Price,a.isValid,a.OrderDate,b.BookID,b.Amount,c.BookName,c.BookAuthor,c.BookPrice,c.BookPress,c.BookDetail,c.BookCategory,c.BookIamgeURL,c.ShelveDate,c.Inventory,c.Rating from [Order] a inner join [OrderDetail] b on a.OrderID=b.OrderID inner join [Book] c on b.BookID=c.BookID order by a.OrderID desc";
+                    "select a.OrderID,a.UserName,a.Address,a.Remark,a.Price,a.isValid,a.OrderDate,b.BookID,b.Amount,c.BookName,c.BookAuthor,c.BookPrice,c.BookPress,c.BookDetail,c.BookCategory,c.BookImageURL,c.ShelveDate,c.Inventory,c.Rating from [Order] a inner join [OrderDetail] b on a.OrderID=b.OrderID inner join [Book] c on b.BookID=c.BookID order by a.OrderID desc";
             }
             
             else
             {
                 //根据订单号查询订单
-                cmdText = "select a.OrderID,a.UserName,a.Address,a.Remark,a.Price,a.isValid,a.OrderDate,b.BookID,b.Amount,c.BookName,c.BookAuthor,c.BookPrice,c.BookPress,c.BookDetail,c.BookCategory,c.BookIamgeURL,c.ShelveDate,c.Inventory,c.Rating from [Order] a inner join [OrderDetail] b on a.OrderID=b.OrderID inner join [Book] c on b.BookID=c.BookID where a.OrderID='"+orderId+"' order by a.OrderID desc";
+                cmdText = "select a.OrderID,a.UserName,a.Address,a.Remark,a.Price,a.isValid,a.OrderDate,b.BookID,b.Amount,c.BookName,c.BookAuthor,c.BookPrice,c.BookPress,c.BookDetail,c.BookCategory,c.BookImageURL,c.ShelveDate,c.Inventory,c.Rating from [Order] a inner join [OrderDetail] b on a.OrderID=b.OrderID inner join [Book] c on b.BookID=c.BookID where a.OrderID='"+orderId+"' order by a.OrderID desc";
             }
            
 
@@ -177,7 +177,7 @@ namespace OnlineBookStore.App_Code
                         //相同订单的信息已经设置过了，不需要重新设置
                         order.SetOrderInformation(dataSet.Tables[0].Rows[i][0].ToString(),
                         dataSet.Tables[0].Rows[i][1].ToString(), Convert.ToDecimal(dataSet.Tables[0].Rows[i][4]),
-                        Convert.ToInt32(dataSet.Tables[0].Rows[i][5]), dataSet.Tables[0].Rows[i][6].ToString(),
+                        Convert.ToInt32(dataSet.Tables[0].Rows[i][5]), dataSet.Tables[0].Rows[i]["OrderDate"].ToString(),
                         shippingAddress);
                     }
                     else

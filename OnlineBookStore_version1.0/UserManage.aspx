@@ -19,7 +19,7 @@
     <!--用户管理Panel-->
     <asp:Panel ID="P_UserShow" runat="server" CssClass="P_UserShow">
         <!--用户管理gridview-->
-        <asp:GridView ID="grvAllUser" runat="server" DataSourceID="ObjectDataSource1" OnRowCommand="grvAllUser_OnRowCommand" AllowPaging="True" AutoGenerateColumns="False" CssClass="GV_UserShow" PageSize="9">
+        <asp:GridView ID="grvAllUser" runat="server" OnRowCommand="grvAllUser_OnRowCommand" AllowPaging="True" AutoGenerateColumns="False" CssClass="GV_UserShow" PageSize="9">
             <Columns>
                 <asp:BoundField HeaderText="用户名" HeaderStyle-CssClass="GV_Title1" ItemStyle-CssClass="GV_Item1" DataField="Name" SortExpression="Name">
                 <HeaderStyle CssClass="GV_Title1" />
@@ -56,16 +56,6 @@
             </Columns>
             <PagerStyle Height="20px" HorizontalAlign="Right" />
         </asp:GridView>
-
-
-
-
-
-        <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="QueryUserInformation" TypeName="OnlineBookStore.App_Code.Manager">
-            <SelectParameters>
-                <asp:Parameter DefaultValue="null" Name="userName" Type="String" />
-            </SelectParameters>
-        </asp:ObjectDataSource>
 
 
 
