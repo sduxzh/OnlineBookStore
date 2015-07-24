@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <link rel="stylesheet" type="text/css" href="CSS/ManagerEnter.css" />
+    <link rel="stylesheet" type="text/css" href="css/ManagerEnter.css" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
 

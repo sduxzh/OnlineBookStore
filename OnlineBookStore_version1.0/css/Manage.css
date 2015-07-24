@@ -1,7 +1,7 @@
 ﻿
 body {
     font-family: '微软雅黑','楷体';
-    background-image: url(/Images/BodyBack_Short.jpg);
+    background-image: url(/Image/BodyBack_Short.jpg);
     background-size: 100% 100%;
     width: 1344px;
     height: 1005px;
@@ -20,7 +20,7 @@ body {
     position: absolute;
     top: 0px;
     left: 24px;
-    background-image: url(/Images/SystemTitle.png);
+    background-image: url(/Image/SystemTitle.png);
     float: left;
     width: 1162px;
     height: 220px;

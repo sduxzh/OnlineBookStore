@@ -116,14 +116,21 @@
  }
  .icmdSCBookPic{
      margin:10px;
-     width:150px;
+     width:140px;
      height:200px;
  }
- .icmdSCBookPic:hover{
+ /*.icmdSCBookPic:hover{
+     width:154px;
+     height:220px;
+     margin-left:3px;
+     margin-right:3px;
+     margin-top:0px;
+     margin-bottom:0px;
+     
+ }*/
+ .pnlSCBookPic{
      width:160px;
-     height:213px;
-     margin-left:5px;
-     margin-top:3.5px;
+     height:220px;
  }
  .lcmdSCBookName{
      color:black;

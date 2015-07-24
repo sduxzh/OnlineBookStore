@@ -1,14 +1,14 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/ManagerManage.Master" AutoEventWireup="true" CodeFile="AddBook.aspx.cs" Inherits="AddBook" %>
+﻿<%@ Page Language="C#" MasterPageFile="ManagerManage.Master" AutoEventWireup="true" CodeFile="AddBook.aspx.cs" Inherits="AddBook" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link rel="stylesheet" type="text/css" href="CSS/BookManage_AddAlter.css" />
+    <link rel="stylesheet" type="text/css" href="css/BookManage_AddAlter.css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!--添加书籍Panel-->
     <asp:Panel ID="PanelAddBook" runat="server" CssClass="PanelMain">
-        <asp:Image ID="ImagTitleAdd" runat="server" AlternateText="书籍管理-书籍添加" CssClass="Title" ImageUrl="~/Images/BookManage_Add.png" />
+        <asp:Image ID="ImagTitleAdd" runat="server" AlternateText="书籍管理-书籍添加" CssClass="Title" ImageUrl="~/Image/BookManage_Add.png" />
         <!--点击添加封面，添加后显示图片，再次点击可修改-->
-        <asp:ImageButton ID="ImgAddrCover" runat="server" CssClass="Cover" ImageUrl="~/Images/图片添加按钮.png" AlternateText="点击添加封面" OnClick="ImgAdCover_Click" />
+        <asp:ImageButton ID="ImgAddrCover" runat="server" CssClass="Cover" ImageUrl="~/Image/AddBook.png" AlternateText="点击添加封面" OnClick="ImgAdCover_Click" />
 
         <table class="Table">
             <tr>

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeFile="MainPage.aspx.cs" Inherits="Main" %>
+﻿<%@ Page Language="C#" MasterPageFile="Master.Master" AutoEventWireup="true" CodeFile="MainPage.aspx.cs" Inherits="Main" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
@@ -109,7 +109,7 @@
     <link rel="stylesheet" href="css/owl.carousel.css" />
 
     <%--主页CSS--%>
-    <link rel="stylesheet" href="css/Main.css" />
+    <link rel="stylesheet" href="css/MainUpdate.css" />
 
     <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
     <script type="text/javascript" src="js/owl.carousel.js"></script>
@@ -147,33 +147,33 @@
 
             </td>
             <td>
-                <%--中间轮转书籍界面，需要改链接地址，链接至书籍详情--%>
+               <%--中间轮转书籍界面，需要改链接地址，链接至书籍详情--%>
                 <div id="owl-demo" class="owl-carousel">
-                    <a class="item" href="http://sc.chinaz.com/" target="_blank">
-                        <img src="/Picture/1.jpg" alt="" /><span>华胥引：若用生命换一个过往完美的幻境，你可否答应？</span></a>
-                    <a class="item" href="http://sc.chinaz.com/" target="_blank">
-                        <img src="/Picture/2.jpg" alt="" /><span>我叫梅茜 我不是童话 而是你心中最美的世界</span></a>
-                    <a class="item" href="http://sc.chinaz.com/" target="_blank">
-                        <img src="/Picture/3.jpg" alt="" /><span>悟空传：生我何用？不能欢笑.灭我何用？不减狂骄.  </span></a>
+                    <a class="item" href="BookDetail.aspx" target="_blank">
+                        <img src="Picture/1边城.jpg" alt="" /><span>边城：这个人也许永远不回来了，也许”明天“回来!</span></a>
+                    <a class="item" href="BookDetail.aspx" target="_blank">
+                        <img src="Picture/2曾国藩家书.jpg" alt="" /><span>曾国藩家书：士人读书，第一要有志，第二要有识，第三要有恒</span></a>
+                    <a class="item" href="BookDetail.aspx" target="_blank">
+                        <img src="Picture/3航海日记.jpg" alt="" /><span>航海日记：能够生存下来的，是最能够适应变化的物种</span></a>
                     &nbsp;&nbsp;&nbsp;
-	                <a class="item" href="http://sc.chinaz.com/" target="_blank">
-                        <img src="/Picture/4.jpg" alt="" /><span>白夜行：绝望的念想，悲恸的守望</span></a>
-                    <a class="item" href="http://sc.chinaz.com/" target="_blank">
-                        <img src="/Picture/5.jpg" alt="" /><span>功夫熊猫：You just need to believe.</span></a>
-                    <a class="item" href="http://sc.chinaz.com/" target="_blank">
-                        <img src="/Picture/6.jpg" alt="" /><span>乔布斯传：活着就是为了改变世界</span></a>
-                    <a class="item" href="http://sc.chinaz.com/" target="_blank">
-                        <img src="/Picture/7.jpg" alt="" /><span>色铅笔的花草生活：感受色彩铅带给你的静谧和恬淡</span></a>
+	                <a class="item" href="BookDetail.aspx" target="_blank">
+                        <img src="Picture/4教父.jpg" alt="" /><span>教父：不要憎恨你的敌人,那会影响你的判断力</span></a>
+                    <a class="item" href="BookDetail.aspx" target="_blank">
+                        <img src="Picture/5木偶奇遇记.jpg" alt="" /><span>木偶奇遇记：好孩子守则第一条：永远诚实</span></a>
+                    <a class="item" href="BookDetail.aspx" target="_blank">
+                        <img src="Picture/6全球通史.jpg" alt="" /><span>全球通史：用全球的视野来阐释历史</span></a>
+                    <a class="item" href="BookDetail.aspx" target="_blank">
+                        <img src="Picture/7小王子.jpg" alt="" /><span>小王子：所有的大人曾经都是小孩，然而只有少数人记得</span></a>
                 </div>
                 <%--书籍上新面板--%>
-                <asp:Panel ID="pnlBookNew" runat="server" CssClass="pnlBookNew">
+                <asp:Panel ID="pnlBookNew" runat="server" CssClass="pnlBookNew" >
                     <%-- 书籍上新标题--%>
-                    <asp:Label ID="lblBookNew" runat="server"  CssClass="lblBookNew" Text="给力上新"></asp:Label><br />
+                    <asp:Label ID="lblBookNew" runat="server"   CssClass="lblBookNew" Text="给力上新"></asp:Label><br />
                     <br />
                     <br />
                     <br />
                     <br />
-                    <asp:ListView ID="ListView_NewBook" OnItemCommand="ListView_OnItemCommand" runat="server">
+                    <asp:ListView ID="ListView_NewBook" OnItemCommand="ListView_OnItemCommand" runat="server" OnSelectedIndexChanged="ListView_NewBook_SelectedIndexChanged">
 
                         <GroupTemplate>
                             <tr id="itemPlaceholderContainer" runat="server">
@@ -193,22 +193,23 @@
                             </td>
                             <td runat="server"
                                 style="background-color: #FFFFFF">
-                                  <asp:Panel ID="pnlBookNewLkbName" runat="server" CssClass="pnlBookNewLkbName">
-                                &nbsp;<asp:LinkButton ID="lkbNewBookName0" runat="server" CssClass="lkbBookName0" Font-Underline="false"></asp:LinkButton><br />
+                                  <asp:Panel ID="pnlBookNewLkbName" runat="server" CssClass="pnlBookNewLkbName" style="width:230px;">
+                                &nbsp;<asp:LinkButton ID="lkbNewBookName0" runat="server" CssClass="lkbBookName0" Font-Underline="false" style="width:225px;"></asp:LinkButton><br />
                                 </asp:Panel>
-                                 &nbsp;<asp:Label ID="lblBookPrice0" runat="server" CssClass="lblBookPrice0" Text="¥"></asp:Label>&nbsp;<asp:Label ID="lblBookPriceIn0" runat="server" CssClass="lblBookPrice0" Text=""></asp:Label>    
+                                     &nbsp;<asp:Label ID="lblBookPrice0" runat="server" CssClass="lblBookPrice" Text="¥"></asp:Label>&nbsp;<asp:Label ID="lblBookPriceIn"  runat="server" CssClass="lblBookPrice" Text=""></asp:Label><br/>
                                 <br />
                                 <%--“作者”及作者姓名展示，第二个label需绑定数据--%>
-                    &nbsp;<asp:Label ID="lblBookNewName" runat="server"  Text='<%# Eval("bookName") %>'  CssClass="lblAuthorName00"></asp:Label>
+                    <%--&nbsp;<asp:Label ID="lblBookNewName" runat="server"  Text='<%# Eval("bookName") %>'  CssClass="lblAuthorName00"></asp:Label>--%>
                                 &nbsp;<asp:Label ID="lblNewAuthorName" runat="server" Text='<%# Eval("bookAuthor") %>' CssClass="lblAuthorName01"></asp:Label>
                                 <br />
                                 <br />
                                 <br />
                                 <%--新书籍立即购买及加入购物车按钮--%>
-                         
-                    &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<asp:Button ID="cmdNewBuyNow" CommandName="NewBuyNow" CommandArgument='<%# Eval("BookID") %>' runat="server" CssClass="cmdBookOperation00" Text="立即购买" /><br />
+                         <asp:Panel ID="pnlBookOperation0" runat="server" CssClass="pnlBookOperation0">
+                          &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;<asp:Button ID="cmdNewBuyNow" CommandName="NewBuyNow" CommandArgument='<%# Eval("BookID") %>' runat="server" CssClass="cmdBookOperation00" Text="立即购买" />
                                 <br />
-                                &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<asp:Button ID="cmdNewAddShoppingCart" CommandName="NewAddBookToShoppingCart" CommandArgument='<%# Eval("BookID") %>' runat="server" CssClass="cmdBookOperation01" Text="加入购物车" />
+                             <br />
+                                &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;<asp:Button ID="cmdNewAddShoppingCart" CommandName="NewAddBookToShoppingCart" CommandArgument='<%# Eval("BookID") %>' runat="server" CssClass="cmdBookOperation01" Text="加入购物车" /></asp:Panel>
 
                             </td>
                         </ItemTemplate>
@@ -254,10 +255,10 @@
                                 <td id="itemPlaceholder" runat="server"></td>
                             </tr>
                         </GroupTemplate>
-                        <ItemTemplate>
+                       <ItemTemplate>
                             <td runat="server" class="style1"
                                 style="background-color: #FFFFFF; color: #284775;">
-                                <asp:Panel ID="pnlBookR0" runat="server" CssClass="pnlBookR">
+                                <asp:Panel ID="pnlBookR0" runat="server" CssClass="pnlBookR" Height="435px">
                                     <asp:Panel ID="pnlBookRImg" runat="server" CssClass="pnlBookRImg">
                                     <asp:ImageButton ID="icmdBookRecommend" ImageUrl='<%# Eval("bookImageURL") %>' runat="server" CssClass="imgBookR" />
                                     <br />
@@ -265,12 +266,14 @@
                                      <asp:Panel ID="pnlBookRLkbName" runat="server" CssClass="tdlkbBookName">
                                     &nbsp;<asp:LinkButton ID="lkbBookName" CommandName="BookDetail" CommandArgument='<%# Eval("bookID") %>' Text='<%# Eval("bookName") %>' runat="server" CssClass="lkbBookName"></asp:LinkButton>
                                     <br />
-                                         </asp:Panel>
+                                         </asp:Panel><br/>
+                                    <asp:Panel ID="pnlBookPrice" runat="server" style="height:50px;width:225px;">
                                      &nbsp; &nbsp;<asp:Label ID="lblBookPrice" runat="server" CssClass="lblBookPrice" Text="¥"></asp:Label>&nbsp;<asp:Label ID="lblBookPriceIn"  runat="server" CssClass="lblBookPrice" Text=""></asp:Label><br/>
                                     &nbsp;<asp:Label ID="lblAuthorName" Text='<%# Eval("bookAuthor") %>' runat="server" CssClass="lblAuthorName"></asp:Label>
-                                    <br />
+                                    </asp:Panel>
+                                     <asp:Panel ID="pnlBookOperation" runat="server" CssClass="tdcmdBookOperation">
                                     &nbsp;<asp:Button ID="cmdBuyNow" CommandName="BuyNow" CommandArgument='<%# Eval("BookID") %>' runat="server" CssClass="cmdBookOperation" Text="立即购买" />
-                                    &nbsp;<asp:Button ID="cmdAddShoppingCart" CommandName="AddBookToShoppingCart" CommandArgument='<%# Eval("BookID") %>' runat="server" CssClass="cmdBookOperation" Text="加入购物车" />
+                                    &nbsp;<asp:Button ID="cmdAddShoppingCart" CommandName="AddBookToShoppingCart" CommandArgument='<%# Eval("BookID") %>' runat="server" CssClass="cmdBookOperation" Text="加入购物车" /></asp:Panel>
                                 </asp:Panel>
                             </td>
                         </ItemTemplate>

@@ -12,7 +12,8 @@ public partial class SubmitOrder : System.Web.UI.Page
     List<BookItem> bookItems = new List<BookItem>();
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+        if (!IsPostBack)
+            ViewState["retu"] = Request.UrlReferrer.ToString();
         decimal totalCost = 0;
         if (Session["ConfirmToBuyBook"] != null)
         {
@@ -39,6 +40,7 @@ public partial class SubmitOrder : System.Web.UI.Page
     /// <param name="e"></param>
     protected void Button_SaveMessage_Click(object sender, EventArgs e)
     {
+        
         Customer currentUser = null;    
         if (Session["User"] != null)
         {
@@ -65,5 +67,11 @@ public partial class SubmitOrder : System.Web.UI.Page
         {
             Response.Redirect("<script>alert(‘购买失败，请稍后重试！')</script>");
         }        
+    }
+
+    protected void Button_Back_Click(object sender, EventArgs e)
+    {
+        if (ViewState["retu"] != null)
+            Response.Redirect(ViewState["retu"].ToString()); 
     }
 }

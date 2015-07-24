@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeFile="UserShoppingCart.aspx.cs" Inherits="UserShoppingCart" %>
+﻿<%@ Page Language="C#" MasterPageFile="Master.Master" AutoEventWireup="true" CodeFile="UserShoppingCart.aspx.cs" Inherits="UserShoppingCart" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" href="css/UserShoppingCart.css" />
@@ -10,6 +10,31 @@
             width: 1320px;
             height: 424px;
         }
+         .cmdSCBuyNow{
+            text-align:center;
+            border-radius:5px;
+    border-style:solid;
+    height:30px;
+    width:120px;
+    border-width:0px;
+    color:white;
+    font-family:'Microsoft YaHei';
+    font-weight:700;
+    font-size:1em;
+    background-color:#f4830e;
+    position:absolute;
+    left:1100px;
+    top:920px;
+        }
+        .cmdSCBuyNow:hover{
+        border-color: #f4830e;
+        border-style: solid;
+        border-width: 2px;
+        background-color: white;
+        color: #f4830e;
+        transition: all .7s;
+        -webkit-transition: all .7s;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -18,7 +43,7 @@
         <asp:Button ID="cmdDelete" runat="server" CssClass="cmdDelete" Text="批量删除" />
         <div id="divSCD" runat="server" class="divSCD">
             <%--购物车--%>
-            <asp:GridView ID="gridview_ShoppingCart" OnRowCommand="gridview_ShoppingCart_OnRowCommand" runat="server" AutoGenerateColumns="False" CssClass="grvShoppingCart" ShowHeader="False" >
+            <asp:GridView ID="gridview_ShoppingCart" GridLines="None" OnRowCommand="gridview_ShoppingCart_OnRowCommand" runat="server" AutoGenerateColumns="False" CssClass="grvShoppingCart" ShowHeader="False" >
                 <Columns>
                     <asp:TemplateField HeaderText="SCBookPic" ShowHeader="False">
                         <ItemTemplate>
@@ -31,10 +56,16 @@
                                 </ContentTemplate>
                             </asp:UpdatePanel>
                            <%-- 异步刷新图书勾选框--%>
+                            
+                        </ItemTemplate>
+                        <ItemStyle Width="20px" />
+                    </asp:TemplateField>
+                    <asp:TemplateField>
+                        <ItemTemplate>
                             <%--图书图片--%>
                             <asp:ImageButton ID="icmdSCBookPic" ImageUrl='<%# Eval("Book.bookImageURL") %>' CssClass="icmdSCBookPic" runat="server" />
                         </ItemTemplate>
-                        <ItemStyle Width="200px" />
+                        <ItemStyle Width="160px"/>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="SCBookInfo" ShowHeader="False">
                         <ItemTemplate>
@@ -80,11 +111,12 @@
                     </asp:TemplateField>
 
                 </Columns>
-                <RowStyle Height="150px" HorizontalAlign="Left" />
+                <RowStyle Height="210px" HorizontalAlign="Left" />
             </asp:GridView>
         </div>
 
         <asp:Image ID="iconShoppingCart" runat="server" />
+        <asp:Button ID="ConfirmBuy" CssClass="cmdSCBuyNow" runat="server" OnClick="ConfirmBuy_Click" Text="确认购买" />
         <asp:Panel ID="pnlBookRecommend" runat="server" CssClass="pnlBookRecommend">
             <asp:GridView ID="grvBookRecommend" runat="server" AllowPaging="True" AutoGenerateColumns="False" CssClass="auto-style1" PageSize="1" ShowHeader="False">
                 <Columns>
@@ -148,7 +180,7 @@
                 <RowStyle Height="380px" />
 
             </asp:GridView>
-            <asp:Button ID="ConfirmBuy" runat="server" OnClick="ConfirmBuy_Click" Text="确认购买" />
+            
         </asp:Panel>
         <asp:Label ID="lblSCBookUlike" runat="server" CssClass="lblSCBookUlike" Text="      猜你喜欢"></asp:Label>
     </asp:Panel>

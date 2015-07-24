@@ -7,6 +7,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using OnlineBookStore.App_Code;
 
+
 public partial class OrderManage : System.Web.UI.Page
 {
     private Manager manager;//全局
@@ -96,6 +97,8 @@ public partial class OrderManage : System.Web.UI.Page
             grvOrderDetails.DataBind();//订单详情绑定图书信息
             P_OrderDetail.Visible = true;//显示订单详情
 
-        }
-    }
+        }}
+
+
 }
+    

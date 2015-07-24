@@ -1,7 +1,7 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/ManagerManage.Master" AutoEventWireup="true" CodeFile="UserManage.aspx.cs" Inherits="UserManage" %>
+﻿<%@ Page Language="C#" MasterPageFile="ManagerManage.Master" AutoEventWireup="true" CodeFile="UserManage.aspx.cs" Inherits="UserManage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link rel="stylesheet" type="text/css" href="CSS/UserManage.css" />
+    <link rel="stylesheet" type="text/css" href="css/UserManage_zero.css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!--搜索Panel-->

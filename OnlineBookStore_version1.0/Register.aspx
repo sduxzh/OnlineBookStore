@@ -8,7 +8,7 @@
     <title></title>
     <link rel="stylesheet" type="text/css" href="css/Register.css">
 </head>
-<body>
+<body style="background-image: url(Image/气球背景6.jpg); background-repeat: no-repeat;">
     <form id="form1" runat="server">
     <div>
     
@@ -54,15 +54,11 @@
                 </tr>
             </table>
             <!--注册按钮-->
-            <asp:Button ID="Button_Login" runat="server" CssClass="Button_Login" Text="注册" />
+             <asp:Button ID="Button2" runat="server" CssClass="Button_Login" Text="返回"  style="left:380px;" OnClick="Button_Back_Click"/>
+            <asp:Button ID="Button_Login" runat="server" CssClass="Button_Login" Text="注册"  style="left:200px;"/>
                     
         </asp:Panel>
-        <!--网站Logo-->
-        <asp:Image ID="Image_Logo" runat="server" CssClass="Image_Logo" />
-        <!--用户注册-->
-        <asp:Label ID="Label_Login" runat="server" CssClass="Label_Login" Text="用户注册" Font-Bold="True" Font-Names="仿宋" Font-Size="XX-Large"></asp:Label>
-        <!--大图-->
-        <asp:Image ID="Image" runat="server" CssClass="Image" />
+       
     </form>
 </body>
 </html>

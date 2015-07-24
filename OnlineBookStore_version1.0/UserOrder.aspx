@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeFile="UserOrder.aspx.cs" Inherits="UserOrder" %>
+﻿<%@ Page Language="C#" MasterPageFile="Master.Master" AutoEventWireup="true" CodeFile="UserOrder.aspx.cs" Inherits="UserOrder" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" href="css/UserShoppingCart.css" />

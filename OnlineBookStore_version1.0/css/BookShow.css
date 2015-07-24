@@ -3,7 +3,7 @@
 }
 .P_BookShow{
     position:absolute;
-    top:240px;
+    top:280px;
     left:200px;
     height:1710px;
     width:910px;
@@ -17,10 +17,10 @@
 }
 .P_Recommend{
     position:absolute;
-    top:250px;
+    top:280px;
     left:1080px;
     height:1700px;
-    width:205px;
+    width:260px;
     border-left:2px solid #5cacee  ;
 }
 .Table:hover, .Table:active {
@@ -83,9 +83,17 @@
                 background-color: #5cacee;
             }
             .ImgRecommend{
-                position:relative;
-                top:5px;
-                left:50px;
+                position:absolute;
+                top:0px;
+                left:0px;
+                background-color:#5cacee;
+                border-radius:5px;
+                color:white;
+                font-family:'Microsoft YaHei';
+                font-weight:700;
+                font-size:1.5em;
+                text-align:center;
+                padding-top:4px;
             }
             .GV_Recommend{
                 position:relative;
@@ -120,4 +128,5 @@
                  left:15px;
                  width:170px;
                  height:930px;
+                 background-image:url('../Image/广告位.png');
              }

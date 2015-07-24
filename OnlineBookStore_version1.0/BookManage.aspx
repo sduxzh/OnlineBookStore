@@ -1,12 +1,12 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/ManagerManage.Master" AutoEventWireup="true" CodeFile="BookManage.aspx.cs" Inherits="BookManage" %>
+﻿<%@ Page Language="C#" MasterPageFile="ManagerManage.Master" AutoEventWireup="true" CodeFile="BookManage.aspx.cs" Inherits="BookManage" %>
 
-<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" type="text/css" href="CSS/BookManage_zero.css" />
     <style type="text/css">
         body {
             font-family: '微软雅黑','楷体';
-            background-image: url(/Images/BodyBack_Long.jpg);
+            background-image: url(/Image/BodyBack_Long.jpg);
             background-size: 100% 100%;
             width: 1344px;
             height: 1425px;
@@ -48,7 +48,6 @@
         <!--添加button-->
         <asp:LinkButton ID="BAdd" runat="server" OnClick="BAdd_Click" CssClass="BAdd">添加</asp:LinkButton>
         <!--设置公告button-->
-        <asp:LinkButton ID="BAnnouncement" OnClick="BAnnouncement_Click" runat="server" CssClass="BAnnouncement">设置公告</asp:LinkButton>
         <!--高级搜索button，显示/隐藏高级搜索panel-->
         <input type="button" id="BConSearch" class="BConSearch" value="高级搜索" />
         <!--高级搜索Panel-->
@@ -78,28 +77,6 @@
         </asp:Panel>
     </asp:Panel>
 
-    <!--公告弹窗-->
-    <asp:Panel ID="P_Announcement" runat="server" CssClass="P_Announcement" Style="display: none;">
-        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-            <ContentTemplate>
-                <!--公告框-->
-                <asp:TextBox ID="tbAnnouncement" runat="server" TextMode="MultiLine" CssClass="TAnnouncement"></asp:TextBox>
-                <asp:LinkButton ID="lbCancel" runat="server" CssClass="lbCancel">取消</asp:LinkButton>
-                <asp:LinkButton ID="lbSave" runat="server" CssClass="lbSave">确定</asp:LinkButton>
-            </ContentTemplate>
-        </asp:UpdatePanel>
-    </asp:Panel>
-    <!--公告栏设置，需在此写入OnOkScript方法-->
-    <cc1:ModalPopupExtender ID="ModalPopupExtender1"
-        PopupControlID="P_Announcement"
-        TargetControlID="BAnnouncement"
-        OkControlID="lbSave"
-        OnOkScript=""
-        CancelControlID="lbCancel"
-        BackgroundCssClass="bg"
-        runat="server">
-    </cc1:ModalPopupExtender>
-
 
     <!--书籍展示Panel-->
     <asp:Panel ID="P_BookShow" runat="server" CssClass="P_BookShow">
@@ -108,7 +85,7 @@
         <asp:Label ID="lblCateNow" runat="server" Text="[分类]"></asp:Label>&gt;
         <!--显示当前位置：具体搜索条件-->
         <asp:Label ID="lblConNow" runat="server" Text="[具体条件]"></asp:Label><br />
-        <asp:GridView ID="GridVShowBook" runat="server" OnRowCommand="GridVShowBook_OnRowCommand" AutoGenerateColumns="False" CssClass="GV_BookShow" ShowHeader="False" PageSize="4" CellPadding="4" CellSpacing="10">
+        <asp:GridView ID="GridVShowBook" runat="server" OnRowCommand="GridVShowBook_OnRowCommand" AutoGenerateColumns="False" CssClass="GV_BookShow" ShowHeader="False" PageSize="4" CellPadding="4" CellSpacing="10" AllowPaging="True">
             <Columns>
                 <asp:TemplateField>
                     <ItemTemplate>
@@ -191,7 +168,8 @@
                 </asp:TemplateField>
             </Columns>
             <PagerSettings FirstPageText="第一页" LastPageText="末页" NextPageText="下一页&gt;" PageButtonCount="6" PreviousPageText="&lt;上一页" />
-        </asp:GridView>
+                   <PagerStyle Height="20px" HorizontalAlign="Right" />
+             </asp:GridView>
     </asp:Panel>
 
 

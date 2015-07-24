@@ -1,10 +1,16 @@
-﻿ .Panel {
-            width: 494px;
-            height: 374px;
+﻿      
+        .Panel {
+            width: 500px;
+            height: 400px;
             position: absolute;
-            top: 200px;
-            left: 661px;
+            top: 100px;
+            left: 700px;
             z-index: 1;
+            border:0px ;
+            border: 1px solid;
+            border-radius: 15px;
+            border-color:#FFFFFF;
+            background-color:rgba(242, 236, 236, 0.12)
           
         }
         .Image_Logo {
@@ -27,50 +33,95 @@
         .Table {
             width: 100%;
             height: 310px;
+            top:5px;
+            left:20px;
+            z-index:2;
+            
+           
+
         }
         .Td {
-            width: 176px;
-            
+            width: 100px;
+            font-family:"微软雅黑";
+            color:#FFFFFF;            
+          
         }
+
+        .Td1 {
+            width: 64px;
+        }
+
         .TextBox_Username {
-            position: absolute;
-            top: 20px;
-            left: 183px;
+            /*position: absolute;
+            top: 50px;
+            left: 185px;*/
+            width: 200px;
+            height: 15px;
+            z-index: 1;
+            border: 1px solid;
+            border-radius: 15px;
+            border-color:#FFFFFF;
         }
+
+        .DropDownList_Sex{
+            /*position: absolute;
+            top: 95px;
+            left: 185px;*/
+            width:200px;
+            height:20px;
+            border: 1px solid;
+            border-radius: 15px;
+             border-color:#FFFFFF;
+        }
+
         .TextBox_Password{
-            position: absolute;
-            top: 80px;
-            left: 183px;
+            /*position: absolute;
+            top: 140px;
+            left: 185px;*/
+             width:200px;
+            height:15px;
+            border: 1px solid;
+            border-radius: 15px;
+            border-color:#FFFFFF;
+           
         }
         .TextBox_AffirmPassword {
-            position: absolute;
-            top: 140px;
-            left: 183px;
+            /*position: absolute;
+            top: 185px;
+            left: 185px;*/
+             width:200px;
+            height:15px;
+            border: 1px solid;
+            border-radius: 15px;
+             border-color:#FFFFFF;
         }
         .TextBox_SafeQuestion {
-            position: absolute;
-            top: 200px;
-            left: 183px;
+            /*position: absolute;
+            top: 230px;
+            left: 185px;*/
+             width:200px;
+            height:15px;
+            border: 1px solid;
+            border-radius: 15px;
+             border-color:#FFFFFF;
         }
        
        
         .TextBox_Answer {
-            position: absolute;
-            top: 260px;
-            left: 183px;
+            /*position: absolute;
+            top: 280px;
+            left: 185px;*/
+             width:200px;
+            height:15px;
+            border: 1px solid;
+            border-radius: 15px;
+             border-color:#FFFFFF;
         }
-        .Image {
-            position: absolute;
-            top: 250px;
-            left: 100px;
-            z-index: 1;
-            width: 400px;
-            height: 250px;
-        }
+      
          .Button_Login {
             position: absolute;
-            top: 320px;
-            left: 300px;
+            top: 330px;
+            left: 380px;
             z-index: 1;
             border: 1px solid;
             border-radius: 15px;

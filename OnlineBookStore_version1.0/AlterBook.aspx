@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/ManagerManage.Master" AutoEventWireup="true" CodeFile="AlterBook.aspx.cs" Inherits="AlterBook" %>
+﻿<%@ Page Language="C#" MasterPageFile="ManagerManage.Master" AutoEventWireup="true" CodeFile="AlterBook.aspx.cs" Inherits="AlterBook" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" type="text/css" href="CSS/BookManage_AddAlter.css" />
@@ -6,9 +6,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!--书籍修改Panel-->
     <asp:Panel ID="PanelAlterBook" runat="server" CssClass="PanelMain">
-        <asp:Image ID="ImagTitleAlter" runat="server" AlternateText="书籍管理-书籍修改" CssClass="Title" ImageUrl="~/Images/BookManage_Alter.png" />
+        <asp:Image ID="ImagTitleAlter" runat="server" AlternateText="书籍管理-书籍修改" CssClass="Title" ImageUrl="~/Image/BookManage_Alter.png" />
         <!--显示书籍封面，点击修改封面-->
-        <asp:ImageButton ID="ImgAlterCover" runat="server" CssClass="Cover" ImageUrl="~/Images/图片添加按钮.png" AlternateText="点击修改封面" OnClick="ImgAlterCover_Click" />
+        <asp:ImageButton ID="ImgAlterCover" runat="server" CssClass="Cover" AlternateText="点击修改封面" OnClick="ImgAlterCover_Click" />
 
         <table class="Table">
             <tr>

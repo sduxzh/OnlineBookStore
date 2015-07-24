@@ -104,7 +104,7 @@
 .BAdd {
     position: absolute;
     top: 5px;
-    left: 600px;
+    left: 660px;
 }
 
 .BAnnouncement {
@@ -170,82 +170,6 @@
     top: 72px;
     left: 560px;
 }
-
-/*公告Panel*/
-.P_Announcement {
-    width: 380px;
-    height: 460px;
-    padding: 15px 15px 15px 15px;
-    border: 2px solid #8deeee;
-    border-radius: 5px;
-    background-image: url(/Images/AnnouncementBack.png);
-    background-size: 100% 100%;
-}
-
-/*公告栏：输入框*/
-.TAnnouncement {
-    width: 350px;
-    height: 280px;
-    position: absolute;
-    top: 100px;
-    left: 26px;
-    border: 1px solid #5cacee;
-}
-
-/*公告栏：button*/
-.lbCancel {
-    position: absolute;
-    top: 440px;
-    left: 230px;
-    display: block;
-    font-weight: 500;
-    width: 60px;
-    height: 25px;
-    line-height: 25px;
-    padding: 2px;
-    text-align: center;
-    text-decoration: none;
-    font-size: medium;
-    border-radius: 3px;
-}
-
-.lbSave {
-    position: absolute;
-    top: 440px;
-    left: 310px;
-    display: block;
-    font-weight: 500;
-    width: 60px;
-    height: 25px;
-    line-height: 25px;
-    padding: 2px;
-    text-align: center;
-    text-decoration: none;
-    font-size: medium;
-    border-radius: 3px;
-}
-
-    .lbCancel:link, .lbSave:link, .lbCancel:visited, .lbSave:visited {
-        background-color: #5cacee;
-        color: white;
-    }
-
-    .lbCancel:hover, .lbSave:hover, .lbCancel:active, .lbCancel:active {
-        background-color: #3599ea;
-        color: white;
-    }
-/*公告栏底背景*/
-.bg {
-    position: absolute;
-    z-index: 100;
-    top: 0px;
-    left: 0px;
-    background-color: #000;
-    filter: alpha(opacity=60);
-    -moz-opacity: 0.6;
-    opacity: 0.6;
-}
-
 
 /*书籍展示区gridview*/
 .GV_BookShow {

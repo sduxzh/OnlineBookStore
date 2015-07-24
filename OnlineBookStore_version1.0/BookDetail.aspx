@@ -1,7 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Master.Master" CodeFile="BookDetail.aspx.cs" Inherits="BookDetail" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="Master.Master" CodeFile="BookDetail.aspx.cs" Inherits="BookDetail" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
-    <link rel="stylesheet" type="text/css" href="css/BOOKDETAIL.css" />
+    <link rel="stylesheet" type="text/css" href="css/BookDetails.css" />
     <link rel="stylesheet" type="text/css" href="css/Main.css" />
 
 
@@ -22,7 +22,7 @@
                     <tr>
                         <!--图书的名字-->
                         <td class="td1" colspan="2">
-                            <asp:Label ID="Label_Name" runat="server" CssClass="Label_Name" Text="Label"></asp:Label>
+                            <asp:Label ID="Label_Name" runat="server" CssClass="Label_Name" Text="Label" Width="230px"></asp:Label>
                         </td>
                     </tr>
                     <tr>

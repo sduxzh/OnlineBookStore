@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Master.Master" CodeFile="BookShow.aspx.cs" Inherits="BookShow" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="Master.Master" CodeFile="BookShow.aspx.cs" Inherits="BookShow" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel='stylesheet' type='text/css' href="css/Category.css"/>
@@ -29,12 +29,20 @@
     -moz-transition:all .5s;
     -o-transition:all .5s;
 }
+.pnlBookNewImg{
+    height:213px;
+    width:167px;
+}
 .PCategory{
     position:absolute;
     top:280px;
     left:5px;
     width:215px;
     height:560px;
+}
+.pnlBookRImg{
+    width:216px;
+    height:300px;
 }
     </style>
 </asp:Content>
@@ -74,16 +82,21 @@
                 <td runat="server" class="style1"
                     style="background-color: #FFFFFF; color: #284775;">
                     <asp:Panel ID="pnlBookR" runat="server" CssClass="pnlBookR">
+                        <asp:Panel ID="pnlBookRImg" runat="server" CssClass="pnlBookRImg">
                         <asp:ImageButton ID="icmdBookRecommend" ImageUrl='<%# Eval("bookImageURL") %>' runat="server" CssClass="imgBookR" />
-                                    <br />
-                                    &nbsp;<asp:LinkButton ID="lkbBookName" Text='<%# Eval("bookName") %>' runat="server" CssClass="lkbBookName"></asp:LinkButton>
-                                    <br />
-                                    &nbsp;<asp:Label ID="lblAuthor" Text="作者" runat="server" CssClass="lblAuthorName"></asp:Label>
+                                    <br /></asp:Panel>
+                        <asp:Panel ID="pnlBookRLkbName" runat="server" CssClass="tdlkbBookName">
+                                    &nbsp;&nbsp;<asp:LinkButton ID="lkbBookName" Text='<%# Eval("bookName") %>' runat="server" CssClass="lkbBookName"></asp:LinkButton>
+                                    <br /></asp:Panel>
+                                    &nbsp; &nbsp;<asp:Label ID="lblBookPrice" runat="server" CssClass="lblBookPrice" Text="¥"></asp:Label>&nbsp;<asp:Label ID="lblBookPriceIn"  runat="server" CssClass="lblBookPrice" Text=""></asp:Label><br/>
+                                    &nbsp;&nbsp;<asp:Label ID="lblAuthor" Text="作者" runat="server" CssClass="lblAuthorName"></asp:Label>
 
                                     <asp:Label ID="lblAuthorName" Text='<%# Eval("bookAuthor") %>' runat="server" CssClass="lblAuthorName"></asp:Label>
                                     <br />
-                                    &nbsp;<asp:Button ID="cmdBuyNow" CommandName="BuyNow" CommandArgument='<%# Eval("BookID") %>' runat="server" CssClass="cmdBookOperation" Text="立即购买" />
-                                    &nbsp;<asp:Button ID="cmdAddShoppingCart" CommandName="AddBookToShoppingCart" CommandArgument='<%# Eval("BookID") %>' runat="server" CssClass="cmdBookOperation" Text="加入购物车" />
+                        <br />
+                        <asp:Panel ID="pnlBookOperation" runat="server" CssClass="tdcmdBookOperation">
+                                    &nbsp;&nbsp;<asp:Button ID="cmdBuyNow" CommandName="BuyNow" CommandArgument='<%# Eval("BookID") %>' runat="server" CssClass="cmdBookOperation" Text="立即购买" />
+                                    &nbsp;&nbsp;<asp:Button ID="cmdAddShoppingCart" CommandName="AddBookToShoppingCart" CommandArgument='<%# Eval("BookID") %>' runat="server" CssClass="cmdBookOperation" Text="加入购物车" /></asp:Panel>
                     </asp:Panel>
                 </td>
             </ItemTemplate>
@@ -137,29 +150,35 @@
                 </tr>
             </GroupTemplate>
 
-            <ItemTemplate>
+             <ItemTemplate>
                 <td runat="server"
                     style="background-color: #FFFFFF">
 
                     <%--上新书籍的图片，书名及作者--%>
-                    <asp:Image ID="imgBookNew0" runat="server" CssClass="imgBookNew0" />
+                    <asp:Panel ID="pnlBookNewImg" runat="server" CssClass="pnlBookNewImg">
+                    <asp:Image ID="imgBookNew0" runat="server" CssClass="imgBookNew0" /></asp:Panel>
                     <br />
                 </td>
                 <td runat="server"
                     style="background-color: #FFFFFF">
+                    <asp:Panel ID="pnlBookNewLkbName" runat="server" CssClass="pnlBookNewLkbName">
                     <asp:LinkButton ID="lkbNewBookName0" runat="server" CssClass="lkbBookName0" Font-Underline="false"></asp:LinkButton><br />
-                    <br />
+                    <br /></asp:Panel>
+                    &nbsp;<asp:Label ID="lblBookPrice0" runat="server" CssClass="lblBookPrice0" Text="¥"></asp:Label>&nbsp;<asp:Label ID="lblBookPriceIn0" runat="server" CssClass="lblBookPrice0" Text=""></asp:Label>    
+                                <br />
                     <%--“作者”及作者姓名展示，第二个label需绑定数据--%>
                     <asp:Label ID="lblBookNewName0" runat="server" CssClass="lblAuthorName00" Text="作者："></asp:Label>
                     <asp:Label ID="lblNewAuthorName0" runat="server" Text="" CssClass="lblAuthorName01"></asp:Label>
                     <br />
                     <br />
-                    <br />
+           
                     <%--新书籍立即购买及加入购物车按钮--%>
-                         
-                    &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<asp:Button ID="cmdNewBuyNow0" runat="server" CssClass="cmdBookOperation00" Text="立即购买" /><br />
-                    &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<asp:Button ID="cmdNewAddShoppingCart0" runat="server" CssClass="cmdBookOperation01" Text="加入购物车" />
-
+                          <asp:Panel ID="pnlBookOperation0" runat="server" CssClass="pnlBookOperation0">
+                    &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<asp:Button ID="cmdNewBuyNow0" runat="server" CssClass="cmdBookOperation00" Text="立即购买" /><br />
+                    <br />
+                       <br />
+                    &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<asp:Button ID="cmdNewAddShoppingCart0" runat="server" CssClass="cmdBookOperation01" Text="加入购物车" />
+                    </asp:Panel>
                 </td>
             </ItemTemplate>
             <LayoutTemplate>

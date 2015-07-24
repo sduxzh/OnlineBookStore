@@ -8,6 +8,7 @@ using OnlineBookStore.App_Code;
 
 public partial class BookManage : System.Web.UI.Page
 {
+    
     List<Book> queryBooks = new List<Book>();//
     private List<Book> defaultBooks;
     private Manager manager;

@@ -1,7 +1,7 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/ManagerManage.Master" AutoEventWireup="true" CodeFile="OrderManage.aspx.cs" Inherits="OrderManage" %>
+﻿<%@ Page Language="C#" MasterPageFile="ManagerManage.Master" AutoEventWireup="true" CodeFile="OrderManage.aspx.cs" Inherits="OrderManage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link rel="stylesheet" type="text/css" href="CSS/OrderManage.css" />
+    <link rel="stylesheet" type="text/css" href="css/OrderManage_zero.css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!--搜索Panel-->
@@ -20,7 +20,7 @@
     <!--订单展示Panel-->
     <asp:Panel ID="P_OrderShow" runat="server" CssClass="P_OrderShow">
         <!--订单gridview-->
-        <asp:GridView ID="grvOrderInfo" OnRowCommand="grvOrderInfo_OnRowCommand" runat="server" AllowPaging="True" AllowSorting="True" CssClass="GV_OrderShow" AutoGenerateColumns="False" HorizontalAlign="Center">
+        <asp:GridView ID="grvOrderInfo" Height="320px" OnRowCommand="grvOrderInfo_OnRowCommand" runat="server" AllowPaging="True" AllowSorting="True" CssClass="GV_OrderShow" AutoGenerateColumns="False" HorizontalAlign="Center" PageSize="5">
             <Columns>
                 <asp:BoundField HeaderText="订单号" SortExpression="订单号" HeaderStyle-CssClass="GV_Title1" ItemStyle-CssClass="GV_Item1" DataField="orderId">
                 <HeaderStyle CssClass="GV_Title1" />
@@ -54,7 +54,9 @@
             </Columns>
             <EditRowStyle HorizontalAlign="Center" />
             <PagerStyle HorizontalAlign="Right" Font-Size="Medium" Height="16px" Wrap="True" />
-            <RowStyle HorizontalAlign="Center" />
+            <RowStyle HorizontalAlign="Center" Height="60px"/>
+                              
+
         </asp:GridView>
 
     </asp:Panel>

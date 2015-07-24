@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <%--母版页CSS--%>
-    <link rel="stylesheet" href="~/css/Master.css" runat="server" />
+    <link rel="stylesheet" href="css/MasterUpdate.css" runat="server" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
+<body style="background-color:white;">
     <form id="form1" runat="server">
 
 
@@ -92,7 +92,7 @@
                 <tr>
                     <td>
                         <!--首页第二栏面板-->
-                        <asp:Panel ID="pnlLogo" runat="server" CssClass="pnlLogo">                          
+                        <asp:Panel ID="pnlLogo" runat="server" CssClass="pnlLogo" BackImageUrl="~/Image/题头暂存2.jpg">                          
                             <!--search面板，包括搜索框、两个搜索button-->
                             <asp:Panel ID="pnlSearch" runat="server" CssClass="pnlSearch">
                                 <%--搜索框--%>
@@ -134,6 +134,46 @@
 
             </table>
         </div>
+        <div id="divFooter" class="divFooter">
+
+          
+            
+            <asp:Label ID="lblFooterLine0" runat="server" CssClass="lblFooterLine0"></asp:Label><br />
+           
+           
+                <asp:Panel ID="pnlFooterButton" runat="server" CssClass="pnlFooterButton">
+            <table class="tbFooter"><tr>
+                <td>
+            <asp:Label ID="Label1" Text="友情链接：" runat="server" CssClass="lblFooter"></asp:Label>
+            </td>
+                <td>
+            <asp:LinkButton ID="lkbFooter0" runat="server" CssClass="lkbFooter" Text="百度" PostBackUrl="http://www.baidu.com"></asp:LinkButton>&nbsp;
+         </td>
+                <td>
+                <asp:LinkButton ID="lkbFooter1" runat="server" CssClass="lkbFooter"  Text="阿里巴巴" PostBackUrl="http://www.1688.com"></asp:LinkButton>
+           </td>
+                <td>
+                <asp:LinkButton ID="lkbFooter2" runat="server"   CssClass="lkbFooter"  Text="土豆视频" PostBackUrl="http://www.tudou.com"></asp:LinkButton>
+            </td>
+                <td>
+                <asp:LinkButton ID="lkbFooter3" runat="server"   CssClass="lkbFooter" Text="爱奇艺" PostBackUrl="http://www.iqiyi.com"></asp:LinkButton>
+            </td>
+                <td>
+                <asp:LinkButton ID="lkbFooter4" runat="server"  CssClass="lkbFooter"  Text="京东商城" PostBackUrl="http://www.jd.com"></asp:LinkButton>
+         </td>
+                <td>
+                <asp:LinkButton ID="lkbFooter5" runat="server"  CssClass="lkbFooter"  Text="淘宝网" PostBackUrl="http://www.taobao.com"></asp:LinkButton>
+            </td>
+          </tr>
+            </table>
+                    </asp:Panel><br /><br />
+              
+            <asp:Label ID="lblFooterline1" runat="server" CssClass="lblFooterLine1"></asp:Label><br />
+            
+                
+                    <asp:Label ID="lblAnnounce" runat="server" CssClass="lblAnnounce" Text="版权声明：时雨书店工作小组"></asp:Label>
+        
+      </div>
     </form>
 
 </body>

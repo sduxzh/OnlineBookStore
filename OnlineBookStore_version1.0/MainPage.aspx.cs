@@ -118,4 +118,8 @@ public partial class Main : System.Web.UI.Page
 
 
     }
+    protected void ListView_NewBook_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+    }
 }
